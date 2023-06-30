@@ -1,0 +1,59 @@
+CREATE TABLE User
+(
+  User_ID INT NOT NULL,
+  username INT NOT NULL,
+  password INT NOT NULL,
+  phone INT NOT NULL,
+  Spendings INT NOT NULL,
+  PRIMARY KEY (User_ID)
+);
+
+CREATE TABLE Publisher
+(
+  Publisher_Name INT NOT NULL,
+  No._of_games INT NOT NULL,
+  Email INT NOT NULL,
+  PRIMARY KEY (Publisher_Name)
+);
+
+CREATE TABLE Game
+(
+  Game_ID INT NOT NULL,
+  Publisher_Name INT NOT NULL,
+  Category INT NOT NULL,
+  Price INT NOT NULL,
+  Name INT NOT NULL,
+  PRIMARY KEY (Game_ID),
+  FOREIGN KEY (Name) REFERENCES Publisher(Publisher_Name)
+);
+
+CREATE TABLE Order_details
+(
+  Order_ID INT NOT NULL,
+  Total INT NOT NULL,
+  order_date INT NOT NULL,
+  games INT NOT NULL,
+  User_ID INT NOT NULL,
+  PRIMARY KEY (Order_ID),
+  FOREIGN KEY (User_ID) REFERENCES User(User_ID)
+);
+
+CREATE TABLE Payment_Details
+(
+  Payment_ID INT NOT NULL,
+  Status INT NOT NULL,
+  Vendor INT NOT NULL,
+  Status INT NOT NULL,
+  Order_ID INT NOT NULL,
+  PRIMARY KEY (Payment_ID),
+  FOREIGN KEY (Order_ID) REFERENCES Order_details(Order_ID)
+);
+
+CREATE TABLE Owns
+(
+  User_ID INT NOT NULL,
+  Game_ID INT NOT NULL,
+  PRIMARY KEY (User_ID, Game_ID),
+  FOREIGN KEY (User_ID) REFERENCES User(User_ID),
+  FOREIGN KEY (Game_ID) REFERENCES Game(Game_ID)
+);
