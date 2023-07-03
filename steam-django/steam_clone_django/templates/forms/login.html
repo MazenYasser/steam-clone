@@ -21,7 +21,7 @@
           </div>
         
           <div class="container smallFont">
-
+              {% csrf_token %}
             <label for="uname"><b>Username</b></label>
             <input style="background-color: #e8f0fe;" type="text" placeholder="Enter Username" name="username" required>
         
@@ -34,6 +34,14 @@
                 <br>
               <input type="checkbox" checked="checked" name="remember"> Remember me
             </label>
+
+            <p class = 'smallFont'>
+            {% if messages %}
+              {% for message in messages %}
+                {{ message }}
+              {% endfor %}
+            {% endif %}
+            </p>
           </div>
           
           <div class="container" >

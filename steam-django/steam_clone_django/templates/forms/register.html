@@ -40,6 +40,14 @@
             <button style="width: 25%; margin-left: 37%; margin-top:2%;height: 50px; background-image: linear-gradient(to right, #df1b1b, #ba3030);" 
             type="button" class="cancelbtn smallFont" onclick=clearInput()><span style="color: whitesmoke; font-weight: 600;">Clear</span></button></button>
           </div>
+
+          {% if form.errors %}
+            <p class = "smallFont" style= "color: whitesmoke">
+              Registration Failed
+            </p>
+
+          {% endif %}
+          
         </form>
 
     </body>
