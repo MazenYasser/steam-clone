@@ -2,7 +2,8 @@ from django.shortcuts import render
 from .forms import registerForm
 from .models import User
 from django.contrib.auth import login as auth_login
-from django.contrib.auth import logout, authenticate
+from django.contrib.auth import logout as auth_logout
+from django.contrib.auth import authenticate
 from django.shortcuts import redirect
 from django.contrib import messages
 from django.contrib.auth.hashers import make_password, check_password
@@ -42,3 +43,8 @@ def login(request):
         
     else:
         return render(request, 'forms/login.html' , {})
+    
+def logout(request):
+    auth_logout(request)
+    messages.success(request, ("You have been logged out."))
+    return redirect("../pages/home")

@@ -39,8 +39,12 @@
                     <a class="nav-link" href="#">Account</a>
   
                     <div style="background-color: #171a21;" class="dropdown-menu">
-                      <a class="menuItem" href="../Login/login.html">Login</a>
-                      <a class="menuItem" href="#">Sign Up</a>
+                      {% if user.is_authenticated %}
+                        <a class="menuItem" href="{% url 'logout' %}">Logout</a>
+                      {% else %}
+                        <a class="menuItem" href="{% url 'login' %}">Login</a>
+                      {% endif%}  
+                      <a class="menuItem" href="{% url 'register'%}">Sign Up</a>
                     </div>
                   </li>
                   
@@ -78,8 +82,12 @@
                   <a class="nav-link" href="#">Account</a>
 
                   <div style="background-color: #171a21;" class="dropdown-menu">
-                    <a class="menuItem" href="../Login/login.html">Login</a>
-                    <a class="menuItem" href="#">Sign Up</a>
+                    {% if user.is_authenticated %}
+                        <a class="menuItem" href="{% url 'logout' %}">Logout</a>
+                    {% else %}
+                        <a class="menuItem" href="{% url 'login' %}">Login</a>
+                    {% endif%}  
+                      <a class="menuItem" href="{% url 'register'%}">Sign Up</a>
                   </div>
                 </li>
                 
