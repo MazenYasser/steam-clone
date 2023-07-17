@@ -127,7 +127,9 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'steam_clone_django/static'),
 ]
 
-
+# Media files (Images, Videos)
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 
 # Default primary key field type

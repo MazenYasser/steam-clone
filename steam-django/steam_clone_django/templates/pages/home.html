@@ -201,28 +201,20 @@
           </ul>
           
           <!-- The slideshow -->
+          
           <div class="carousel-inner">
             <!--This Div Contains the full carousel item, with each div inside containing a single image with caption for each img-->
             <div class="carousel-item active">
-              <div class="carouselItem" style="float: left;background-image: url({% static "ImageData/apexlegendscover.jpg" %});">
-                <img class="carouselImg" src="{% static "ImageData/apexlegendscover.jpg" %}">
-                <span class="carouselCaption">Apex Legends <br> 49.99$</span>
-              </div>
-
-              <div class="carouselItem" style="background-image: url({% static "ImageData/csgocover.jpg" %});">
+              {% for game in games %}
+              <div class="carouselItem" style="background-image: url({{game.img_cover.url}});">
                 
-                  <img class="carouselImg" src="{% static "ImageData/csgocover.jpg" %}">
-                
-                <a href="../Products/product.html">
-                <span class="carouselCaption">CSGO <br> 49.99$</span>
-              </a>
-              </div>
-
-              <div class="carouselItem" style="background-image: url({% static "ImageData/destiny2cover.jpg" %});">
-                <img class="carouselImg" src="{% static "ImageData/destiny2cover.jpg" %}">
-                <span class="carouselCaption">Destiny 2 <br> 49.99$</span>
-              </div>
+                <img class="carouselImg" src="{{game.img_cover.url}}">
               
+              <a href="{% url 'game' game.id %}">
+              <span class="carouselCaption">{{game.name}}<br> {{game.price}}$</span>
+              </a>
+            </div>
+            {% endfor %}
             </div>
 
 
@@ -235,8 +227,9 @@
 
               <div class="carouselItem" style="background-image: url({% static "ImageData/mk11.jpg" %});">
                 <img class="carouselImg" src="{% static "ImageData/mk11.jpg" %}">
-                <a href="../Products/product2.html">
-                  <span class="carouselCaption">Mortal Kombat 11<br> 89.99$</span>
+                
+                <a href="#">
+                  <span class="carouselCaption">MK 11<br> 89.99$</span>
                 </a>
               </div>
 
