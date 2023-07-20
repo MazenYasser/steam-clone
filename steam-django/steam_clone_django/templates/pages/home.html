@@ -62,11 +62,9 @@
                   </nav>
             </div>
 
-            <div 
-             class="caption">
+            <div class="caption">
                 <h5>Feb.06 - Feb.13 @10AM Pacific</h5>
                 <img style="width: 40%; height: 40%;" src="{% static "ImageData/nextfest.png" %}">
-
             </div>
         </div>
 
@@ -124,57 +122,32 @@
             <br>
             <a href="#">Destiny: 2</a>
           </div>
-
-
           
         <div style="display:inline-block;width: 65%; height: 50%;position: relative; margin-top: 2%; margin-left: 17%;"
          id="demo" class="carousel slide carousel-fade" data-ride="carousel">
 
           <!-- Indicators -->
           <ul class="carousel-indicators">
+            {% for game in games %}
+                {% if forloop.first %}
             <li data-target="#demo" data-slide-to="0" class="active"></li>
-            <li data-target="#demo" data-slide-to="1"></li>
-            <li data-target="#demo" data-slide-to="2"></li>
-            <li data-target="#demo" data-slide-to="3"></li>
-            <li data-target="#demo" data-slide-to="4"></li>
-            <li data-target="#demo" data-slide-to="5"></li>
-            <li data-target="#demo" data-slide-to="6"></li>
-            <li data-target="#demo" data-slide-to="7"></li>
-            <li data-target="#demo" data-slide-to="8"></li>
+                {% else %}
+            <li data-target="#demo" data-slide-to="forloop.counter"></li>
+                {% endif %}
+            {% endfor %}
           </ul>
           
           <!-- The slideshow -->
           <div class="carousel-inner">
+            {% for game in games %}
+            {% if forloop.first %}           
             <div class="carousel-item active">
-              <img src="{% static "ImageData/apexlegendscover.jpg" %}">
-            </div>
+            {% else %}
             <div class="carousel-item">
-              <a href="../Products/product.html">
-                <img src="{% static "ImageData/csgocover.jpg" %}">
-              </a>
+            {% endif %}
+              <img src="{{game.img_cover.url}}">
             </div>
-            <div class="carousel-item">
-              <img src="{% static "ImageData/destiny2cover.jpg" %}">
-            </div>
-            <div class="carousel-item">
-              <a href="../Products/product.html">
-                <img src="{% static "ImageData/tmnt.jpg" %}">
-              </a>
-            </div>
-            <div class="carousel-item">
-              <img src="{% static "ImageData/pubg.jpeg" %}">
-            </div>
-            <div class="carousel-item">
-              <a href="../Products/product2.html">
-                <img src="{% static "ImageData/mk11.jpg" %}">
-              </a>
-            </div>
-            <div class="carousel-item">
-              <img src="{% static "ImageData/mkx.webp" %}">
-            </div>
-            <div class="carousel-item">
-              <img src="{% static "ImageData/mk9.webp" %}">
-            </div>
+            {% endfor %}
           </div>
           
           <!-- Left and right controls -->
@@ -185,9 +158,10 @@
             <span class="carousel-control-next-icon"></span>
           </a>
         </div>
+          <!-- End of top slideshow -->
 
         <div style="margin-left: 17%; margin-top: 3%">
-          <h2 class="midTitleFont">Special Offer: 50% off</h2>
+          <h2 class="midTitleFont">Trending this week</h2>
         </div>
 
         <div style="display:inline-block;width: 65%; height: fit-content;position: relative; margin-top: 2%; margin-left: 17%;"
@@ -203,61 +177,53 @@
           <!-- The slideshow -->
           
           <div class="carousel-inner">
+            
             <!--This Div Contains the full carousel item, with each div inside containing a single image with caption for each img-->
             <div class="carousel-item active">
-              {% for game in games %}
-              <div class="carouselItem" style="background-image: url({{game.img_cover.url}});">
+            {% for game in games %}
+              {% if forloop.counter < 4 %}
+                <div class="carouselItem" style="background-image: url({{game.img_cover.url}});">
                 
                 <img class="carouselImg" src="{{game.img_cover.url}}">
               
-              <a href="{% url 'game' game.id %}">
+                <a href="{% url 'game' game.id %}">
               <span class="carouselCaption">{{game.name}}<br> {{game.price}}$</span>
               </a>
             </div>
+            {% endif %}
             {% endfor %}
-            </div>
-
-
-            <div class="carousel-item">
-              
-              <div class="carouselItem" style="float: left;background-image: url({% static "ImageData/hogwart.webp" %});">
-                <img class="carouselImg" src="{% static "ImageData/hogwart.webp" %}">
-                <span class="carouselCaption">Hogwart's Legacy <br> 69.99$</span>
-              </div>
-
-              <div class="carouselItem" style="background-image: url({% static "ImageData/mk11.jpg" %});">
-                <img class="carouselImg" src="{% static "ImageData/mk11.jpg" %}">
-                
-                <a href="#">
-                  <span class="carouselCaption">MK 11<br> 89.99$</span>
-                </a>
-              </div>
-
-              <div class="carouselItem" style="background-image: url({% static "ImageData/mkx.webp" %});">
-                <img class="carouselImg" src="{% static "ImageData/mkx.webp" %}">
-                <span class="carouselCaption">Mortal Kombat X<br> 39.99$</span>
-              </div>
-              
-            </div>
-            <div class="carousel-item">
-              
-              <div class="carouselItem" style="background-image: url({% static "ImageData/mk9.webp" %});">
-                <img class="carouselImg" src="{% static "ImageData/mk9.webp" %}">
-                <span class="carouselCaption">Mortal Kombat 9<br> 29.99$</span>
-              </div>
-
-              <div class="carouselItem" style="background-image: url({% static 'ImageData/tmnt.jpg' %});">
-                <img class="carouselImg" src="{% static "ImageData/tmnt.jpg" %}">
-                <span class="carouselCaption">TMNT: Out Of The Shadows<br> 9.99$</span>
-              </div>
-
-              <div class="carouselItem" style="float: left;background-image: url({% static "ImageData/pubg.jpeg" %});">
-                <img class="carouselImg" src="{% static "ImageData/pubg.jpeg" %}">
-                <span class="carouselCaption">PUBG <br> 35.99$</span>
-              </div>
-              
-            </div>
           </div>
+              
+          <div class="carousel-item">
+            {% for game in games %}
+              {% if forloop.counter >= 4 and forloop.counter < 7 %}
+                <div class="carouselItem" style="background-image: url({{game.img_cover.url}});">
+                
+                <img class="carouselImg" src="{{game.img_cover.url}}">
+              
+                <a href="{% url 'game' game.id %}">
+              <span class="carouselCaption">{{game.name}}<br> {{game.price}}$</span>
+              </a>
+            </div>
+            {% endif %}
+            {% endfor %}
+          </div>
+
+          <div class="carousel-item">
+            {% for game in games %}
+              {% if forloop.counter >= 7 %}
+                <div class="carouselItem" style="background-image: url({{game.img_cover.url}});">
+                
+                <img class="carouselImg" src="{{game.img_cover.url}}">
+              
+                <a href="{% url 'game' game.id %}">
+              <span class="carouselCaption">{{game.name}}<br> {{game.price}}$</span>
+              </a>
+            </div>
+            {% endif %}
+            {% endfor %}
+          </div>  
+          </div>            
           
           <!-- Left and right controls -->
           <a class="carousel-control-prev" href="#demo2" data-slide="prev">
@@ -268,8 +234,6 @@
           </a>
         </div>
       </div>
-
-      
     </div>
     </body>
 
