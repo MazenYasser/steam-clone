@@ -40,6 +40,10 @@ INSTALLED_APPS = [
     'pages.apps.PagesConfig',
     'games.apps.GamesConfig',
     'users.apps.UsersConfig',
+    'checkout.apps.CheckoutConfig',
+    
+    # Paypal Integration
+    'paypal.standard.ipn',
 ]
 
 MIDDLEWARE = [
@@ -136,3 +140,6 @@ MEDIA_URL = '/media/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+PAYPAL_RECEIVER_EMAIL = 'mazen-bizTest@gmail.com'
+PAYPAL_TEST = True

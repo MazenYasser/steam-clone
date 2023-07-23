@@ -1,5 +1,4 @@
 
-
 .darkNav{
     background-color: #171a21;
 }
@@ -55,27 +54,6 @@ a :hover{
     text-decoration: none;
 }
 
-
-.video-container {
-    height: 100%;
-    width: 100%;
-    position: relative;
-}
-
-.video-container video {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  object-fit: cover;
-}
-
-.video-container .caption{
-  position: relative;
-  text-align: center;
-  padding: 10px;
-  padding-top: 30px;
-}
-
 .navbarCaption{
     position: relative;
     padding: 3px;
@@ -95,10 +73,6 @@ a :hover{
 .navBarItem:hover{
     background-color: whitesmoke;
     opacity: 100%;
-}
-
-@media screen and (max-width: 992px) {
-    
 }
 
 
@@ -172,22 +146,7 @@ a :hover> .sidebar{
     color: #ccdecc;
 }
 
-.smallCarouselImg{
-    display: inline-block; 
-    width: 33%;
-}
 
-.carousel-caption {
-    position: absolute;
-    right: 10px;
-    bottom: 20px;
-    left: 10px;
-    z-index: 10;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    color: #fff;
-    text-align: center;
-}
 
 .titleFont{
     font-size: 40px;
@@ -200,34 +159,7 @@ a :hover> .sidebar{
     color: #1999ff;
 }
 
-#img1{
-    position: relative;
-}
 
-.carouselItem {
-    background-repeat: no-repeat;
-    position: relative;
-    float: left;
-    width: 33%;
-    background-size:cover;
-  }
-  
-.carouselImg {
-    visibility: hidden;
-  }
-
-.carouselCaption{
-    background-color: rgba(55, 134, 198, 0.5);
-    position: absolute; 
-    bottom: 0.1%; 
-    left: 0; 
-    width: 100%; 
-    height: 30%; 
-    text-align: left;
-    padding: 10px;
-    color: whitesmoke;
-    font-weight: 600;
-}
 
 @media screen and (max-width: 860px) {
     .card-footer{
@@ -236,12 +168,8 @@ a :hover> .sidebar{
     
 }
 
-.aboutBlock{
-    margin: 100px;
-    padding: 0px 200px;
-}
-
 #transparentBG{
+    background: linear-gradient(rgba(0, 0, 0, 0.70), rgba(0, 0, 0, 0.70)), url(../../ImageData/cover.webp);
     background-repeat: repeat;
     background-size: cover;
 }
@@ -300,6 +228,9 @@ input[type=text], input[type=password] {
     }
     .cancelbtn {
        width: 100%;
+    }
+    form{
+        width: 100%;
     }
   }
 
