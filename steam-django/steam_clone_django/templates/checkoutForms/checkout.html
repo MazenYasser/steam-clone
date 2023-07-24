@@ -16,12 +16,12 @@
         <img style="position: absolute; width: 800px; height:700px;visibility: hidden;" src="{% static 'ImageData/games.jpg' %}">
   
         
-        <form id="checkoutForm" action="purchase.html" method="POST" style="width: 40%; margin-top: 5%;" class="container fade-in">
+        <form id="checkoutForm" action="" method="" style="width: 40%; margin-top: 5%;" class="container fade-in">
           <div class="container" style="text-align: center;">
             <img src="https://store.cloudflare.steamstatic.com/public/shared/images/header/logo_steam.svg?t=962016">
           </div>
         
-          <div class="container smallFont">
+          {% comment %} <div class="container smallFont">
             <label ><b>Recipient Email</b></label>
             <input style="background-color: #e8f0fe;" type="text" placeholder="Enter Recipient Email" required>
         
@@ -40,19 +40,19 @@
             <input style="background-color: #e8f0fe;" type="text" placeholder="CCV/CVV" required>
 
             <label ><b>Discount Code:</b></label>
-            <input style="background-color: #e8f0fe;" type="text" placeholder="CCV/CVV">
+            <input style="background-color: #e8f0fe;" type="text" placeholder="CCV/CVV"> {% endcomment %}
 
             <h2 style="color: whitesmoke;">Product: {{game.name}}</h2>
             <p style="color: whitesmoke;">Total: ${{game.price}} USD</p>
             
             <button type="submit" class="smallFont" style="display: block;width: 25%; margin-left: 37%; margin-top:2%;height: 50px ;background-image: linear-gradient(to right, #3786c6 , #223e87);;">
               <span style="color: whitesmoke; font-weight: 600;">Checkout</span></button>
-              <button style="width: 25%; margin-left: 37%; margin-top:2%;height: 50px; background-image: linear-gradient(to right, #df1b1b, #ba3030);" 
+              {% comment %} <button style="width: 25%; margin-left: 37%; margin-top:2%;height: 50px; background-image: linear-gradient(to right, #df1b1b, #ba3030);" 
             type="button" class="cancelbtn smallFont" onclick=clearInput()><span style="color: whitesmoke; font-weight: 600;">Clear</span></button></button>
             <label>
                 <br>
               <input type="checkbox" checked="checked" name="remember"> Remember info for next purchase
-            </label>
+            </label> {% endcomment %}
           </div>
         
           

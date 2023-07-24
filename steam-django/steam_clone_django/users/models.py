@@ -30,7 +30,7 @@ class CustomUserManager(UserManager):
         
         
 class User(AbstractBaseUser, PermissionsMixin):
-    name = models.CharField(max_length=50, unique=True) # NAME MUST BE EXACTLY AS USED, This field must exist and in the sane name
+    name = models.CharField(max_length=50, unique=True) # NAME MUST BE EXACTLY AS USED, This field must exist and in the same name
     password = models.CharField(max_length=50, unique=True)
     phone = models.CharField(max_length=14)
     email = models.EmailField(max_length=254, blank=True, default='')
