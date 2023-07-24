@@ -1,6 +1,6 @@
 # Steam website clone
 Steam website clone using HTML5, CSS3, Bootstrap4 and jQuery for frontend
-Django for backend with MySQL, PHP My Admin for database (Not added yet)
+Django for backend(Work in Progress)
 
 # Current Pages:
 ## Login
