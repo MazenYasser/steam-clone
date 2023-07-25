@@ -8,5 +8,5 @@ class Order(models.Model):
     game = models.OneToOneField(to= Games, on_delete=models.DO_NOTHING)
     cost = models.FloatField(default=0)
     
-    def __str__(self) -> str:
-        return 'Order ' + str(self.id)
+    # def __str__(self) -> str:
+    #     return 'Order ' + str(self.id)

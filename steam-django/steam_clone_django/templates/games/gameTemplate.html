@@ -80,7 +80,7 @@
                     <span style="color: #c5d3de; position: relative; top: 8px; padding-right: 12px;">${{game.price}} USD</span>
 
                 <div id="btn-buy" style="float: right;">
-                  <a href="{% url 'checkout' game.id %}">
+                  <a href="{% url 'checkout:checkout' game.id %}">
                     <button type="button" class="btn btn-success"><span>Buy Game</span></button>
                   </a>
                 </div>

@@ -24,7 +24,7 @@
                         Store
                       </a>
                       <div style="background-color: #171a21;" class="dropdown-menu">
-                        <a class="menuItem" href="../pages/home">Home</a>
+                        <a class="menuItem" href="{% url 'home' %}">Home</a>
                         <a class="menuItem" href="#">Discovery Queue</a>
                         <a class="menuItem" href="#">Wishlist</a>
                         <a class="menuItem" href="#">Points Shop</a>
@@ -39,13 +39,18 @@
                     <a class="nav-link" href="#">Account</a>
   
                     <div style="background-color: #171a21;" class="dropdown-menu">
-                      <a class="menuItem" href="../Login/login.html">Login</a>
-                      <a class="menuItem" href="#">Sign Up</a>
-                    </div>
+                      {% if user.is_authenticated %}
+                        <a class="menuItem" href="{% url 'users:logout' %}">Logout</a>
+                        <a class="menuItem" href="{% url 'users:register'%}">Account Settings</a>
+                      {% else %}
+                        <a class="menuItem" href="{% url 'users:login' %}">Login</a>
+                        <a class="menuItem" href="{% url 'users:register'%}">Sign Up</a>
+                      {% endif %}
+                    </div>                  
                   </li>
                   
                   <li class="nav-item">
-                    <a class="nav-link" href="../pages/about">About</a>
+                    <a class="nav-link" href="{% url 'about' %}">About</a>
                   </li>
                 </ul>
               </div>
@@ -78,13 +83,13 @@
                   <a class="nav-link" href="#">Account</a>
 
                   <div style="background-color: #171a21;" class="dropdown-menu">
-                    <a class="menuItem" href="../Login/login.html">Login</a>
-                    <a class="menuItem" href="#">Sign Up</a>
+                    <a class="menuItem" href="{% url 'users:login' %}">Login</a>
+                    <a class="menuItem" href="{% url 'users:register' %}">Sign Up</a>
                   </div>
                 </li>
                 
                 <li class="nav-item">
-                  <a class="nav-link" href="../pages/about">About</a>
+                  <a class="nav-link" href="{% url 'about' %}">About</a>
                 </li>
               </ul>
             </div>
