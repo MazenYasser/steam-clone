@@ -23,7 +23,7 @@ def register(request):
             user = User(name= username, password=hashed_psw, email=email, phone=phone)
             user.save()
         if username is not None and password is not None and email is not None and phone is not None:  
-            return redirect('login')
+            return redirect('users:login')
     
     return render(request, 'forms/register.html', {'registerForm' : registerForm})
 
@@ -39,7 +39,7 @@ def login(request):
             return redirect('../pages/home')
         else:
             messages.error(request, 'Invalid username or password')
-            return redirect('login')
+            return redirect('users:login')
         
     else:
         return render(request, 'forms/login.html' , {})

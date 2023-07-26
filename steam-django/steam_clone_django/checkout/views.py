@@ -8,6 +8,8 @@ from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
 from paypal.standard.forms import PayPalPaymentsForm
 from django.contrib.auth.decorators import login_required
+from django.core.mail import send_mail
+from random import randrange
 # Create your views here.
 
 @login_required
@@ -17,9 +19,12 @@ def checkout(request, game_id):
         isOwned = True
         return render(request, 'checkoutForms/checkout.html', {'game': req_game,'isOwned': isOwned})
     
-    invoice_id = Order.objects.latest('id')
-    invoice_id = invoice_id.id + 100
-    print(invoice_id)    
+    if (Order.objects.count() != 0):
+        invoice_id = Order.objects.latest('id')
+        invoice_id = invoice_id.id + 100
+    else:
+        invoice_id = randrange(100,1000)
+    #print(invoice_id)    
     
     host = request.get_host()
     paypal_dict = {
@@ -41,6 +46,8 @@ def paymentSuccess(request, game_id):
     req_game = Games.objects.get(pk=game_id)
     newOrder = Order(user_id = request.user, game = req_game, cost = req_game.price)
     newOrder.save()
+    send_mail(subject="Your game purchase was successfull", message=f"Thank you {request.user.name} for your purchase of {req_game.name}. \nWe hope you will enjoy it."
+              , fail_silently= False, from_email="settings.EMAIL_HOST_USER", recipient_list=[User.objects.get(pk=request.user.id).email])
     return render(request, 'checkoutForms/paymentSuccess.html')
 
 def paymentFailed(request):
