@@ -24,7 +24,7 @@
                         Store
                       </a>
                       <div style="background-color: #171a21;" class="dropdown-menu">
-                        <a class="menuItem" href="../pages/home">Home</a>
+                        <a class="menuItem" href={% url 'pages:home' %}>Home</a>
                         <a class="menuItem" href="#">Discovery Queue</a>
                         <a class="menuItem" href="#">Wishlist</a>
                         <a class="menuItem" href="#">Points Shop</a>
@@ -51,14 +51,14 @@
                   </li>
                   
                   <li class="nav-item">
-                    <a class="nav-link" href="../pages/about">About</a>
+                    <a class="nav-link" href="{% url 'pages:about' %}">About</a>
                   </li>
                 </ul>
               </div>
             </div>
             
         <div class="mx-auto bg">
-            <a class="float-left" href="../pages/home"><img
+            <a class="float-left" href={% url 'pages:home'%}><img
                 class="logoBig" src="https://store.cloudflare.steamstatic.com/public/shared/images/header/logo_steam.svg?t=962016"></a>
             
             <!-- Navbar links -->
@@ -95,14 +95,23 @@
                 </li>
                 
                 <li class="nav-item">
-                  <a class="nav-link" href="../pages/about">About</a>
+                  <a class="nav-link" href="{% url 'pages:about' %}">About</a>
                 </li>
 
-                {% if user.is_authenticated %}
+                
                 <li class="nav-item">
-                  <p class='menuItem' style='margin: 0px'>Welcome, {{user.name}}. </p>
+                  
+                  <p class='menuItem' style='margin: 0px'>
+                    {% if user.is_authenticated %}
+                    Welcome, {{user.name}}. 
+                    {% else %}
+                    Welcome, Guest.
+                    {% endif %}
+                  </p>
+                  
+                  
                 </li>
-                {% endif %}
+                
               </ul>
             </div>
         </div>

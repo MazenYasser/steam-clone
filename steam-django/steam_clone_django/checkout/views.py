@@ -24,7 +24,6 @@ def checkout(request, game_id):
         invoice_id = invoice_id.id + 100
     else:
         invoice_id = randrange(100,1000)
-    #print(invoice_id)    
     
     host = request.get_host()
     paypal_dict = {
@@ -46,7 +45,7 @@ def paymentSuccess(request, game_id):
     req_game = Games.objects.get(pk=game_id)
     newOrder = Order(user_id = request.user, game = req_game, cost = req_game.price)
     newOrder.save()
-    send_mail(subject="Your game purchase was successfull", message=f"Thank you {request.user.name} for your purchase of {req_game.name}. \nWe hope you will enjoy it."
+    send_mail(subject="Your game purchase was successfull", message=f"Thank you {request.user.name} for your purchase of {req_game.name}.\nWe hope you will enjoy it."
               , fail_silently= False, from_email="settings.EMAIL_HOST_USER", recipient_list=[User.objects.get(pk=request.user.id).email])
     return render(request, 'checkoutForms/paymentSuccess.html')
 

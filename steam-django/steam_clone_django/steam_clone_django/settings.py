@@ -145,10 +145,11 @@ PAYPAL_RECEIVER_EMAIL = 'sb-mclg826189614@business.example.com'
 PAYPAL_TEST = True
 
 LOGIN_URL = 'users:login'
-
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_FROM = 'mazenyasser225@gmail.com'
 EMAIL_HOST_USER = 'mazenyasser225@gmail.com'
 EMAIL_HOST_PASSWORD = 'vmqqzylyfaphyqfu'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+

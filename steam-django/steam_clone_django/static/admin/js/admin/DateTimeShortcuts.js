@@ -90,9 +90,10 @@
             }
             message = interpolate(message, [timezoneOffset]);
 
-            const warning = document.createElement('div');
-            warning.classList.add('help', warningClass);
+            const warning = document.createElement('span');
+            warning.className = warningClass;
             warning.textContent = message;
+            inp.parentNode.appendChild(document.createElement('br'));
             inp.parentNode.appendChild(warning);
         },
         // Add clock widget to a given field
@@ -387,7 +388,13 @@
             DateTimeShortcuts.calendars[num].drawNextMonth();
         },
         handleCalendarCallback: function(num) {
-            const format = get_format('DATE_INPUT_FORMATS')[0];
+            let format = get_format('DATE_INPUT_FORMATS')[0];
+            // the format needs to be escaped a little
+            format = format.replace('\\', '\\\\')
+                .replace('\r', '\\r')
+                .replace('\n', '\\n')
+                .replace('\t', '\\t')
+                .replace("'", "\\'");
             return function(y, m, d) {
                 DateTimeShortcuts.calendarInputs[num].value = new Date(y, m - 1, d).strftime(format);
                 DateTimeShortcuts.calendarInputs[num].focus();

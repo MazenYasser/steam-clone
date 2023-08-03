@@ -4,10 +4,58 @@ from .models import User
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
 from django.contrib.auth import authenticate
+from django.contrib.auth import get_user_model
 from django.shortcuts import redirect
 from django.contrib import messages
 from django.contrib.auth.hashers import make_password, check_password
+from .tokens import account_activation_token
+from django.core.mail import EmailMessage
+from django.template.loader import render_to_string
+from django.contrib.sites.shortcuts import get_current_site
+from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
+from django.utils.encoding import force_bytes, force_text
 # Create your views here.
+
+def activate(request, uidb64, token):
+    user = get_user_model()
+    
+    try:
+        uid = force_text(urlsafe_base64_decode(uidb64))
+        user = User.objects.get(pk=uid)
+        
+    except(TypeError, ValueError, OverflowError, User.DoesNotExist):
+        user = None
+
+    if user is not None and account_activation_token.check_token(user = user, token = token):
+        user.is_active = True
+        user.save()
+        
+        messages.success(request, 'Thank you for activating your account, you can now login.')
+        return redirect('users:login')
+    
+    else:
+        messages.error(request, 'Activation token is invalid.')
+    
+    return redirect('pages:home')
+            
+def activationEmail(request, user, to_email):
+    subject = 'Activate your account'
+    message = render_to_string('forms/activateAccountMail.html', {
+        'user': user.name,
+        'domain': get_current_site(request).domain,
+        'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+        'token': account_activation_token.make_token(user),
+        'protocol': 'https' if request.is_secure() else 'http'
+        
+    })
+    email = EmailMessage(subject= subject, body= message, to=[to_email])
+    
+    if email.send():  
+        messages.success(request, f'Activation email sent to {to_email}, please go to the email to activate your account.\nCheck spam folder.')
+    
+    else:
+        messages.error(request, f'Problem sending email to {to_email}, Check if you typed the email correctly and try again.')
+
 
 def register(request):
     if request.method == 'POST':
@@ -22,6 +70,11 @@ def register(request):
         if form.is_valid():
             user = User(name= username, password=hashed_psw, email=email, phone=phone)
             user.save()
+            user.is_active = False
+            activationEmail(request, user, user.email)
+        else:
+            for error in list(form.errors.values()):
+                messages.error(request, error)
         if username is not None and password is not None and email is not None and phone is not None:  
             return redirect('users:login')
     
@@ -34,12 +87,14 @@ def login(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
         user = authenticate(request, name=username, password=password)
-        if user is not None:
+        if user is not None and user.is_active:
             auth_login(request, user)
-            return redirect('../pages/home')
-        else:
+            return redirect('pages:home')
+        elif user is None:
             messages.error(request, 'Invalid username or password')
             return redirect('users:login')
+        elif not user.is_active:
+            messages.error(request, 'Email is not activated, Please check your email for activation instructions.')
         
     else:
         return render(request, 'forms/login.html' , {})
@@ -47,4 +102,4 @@ def login(request):
 def logout(request):
     auth_logout(request)
     messages.success(request, ("You have been logged out."))
-    return redirect("../pages/home")
+    return redirect("pages:home")
