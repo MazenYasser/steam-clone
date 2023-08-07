@@ -49,5 +49,5 @@ def paymentSuccess(request, game_id):
               , fail_silently= False, from_email="settings.EMAIL_HOST_USER", recipient_list=[User.objects.get(pk=request.user.id).email])
     return render(request, 'checkoutForms/paymentSuccess.html')
 
-def paymentFailed(request):
+def paymentFailed(request, game_id):
     return render(request, 'checkoutForms/paymentFailed.html')

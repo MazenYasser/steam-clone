@@ -23,7 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('pages/', include(('pages.urls' , 'pages'), namespace='pages')),
     path('games/', include('games.urls')),
-    path('users/', include(('users.urls', 'home'), namespace='users')),
+    path('', include(('users.urls', 'home'), namespace='users')),
     path('checkout/', include(('checkout.urls','checkout'), namespace='checkout')),
     path('paypal/', include('paypal.standard.ipn.urls')),
     

@@ -26,32 +26,30 @@
     <body id="transparentBG" style="background-color: #1b2838;" class="fade-in">
       
         <img style="position: absolute; width: 800px; height:700px;visibility: hidden;" src="../../ImageData/games.jpg">
-  
-        
-        <form id="loginForm" action="../Home/home.html" method="post" style="width: 40%; margin-top: 5%;" class="container fade-in">
-          <div class="container" style="text-align: center;">
-            <img src="https://store.cloudflare.steamstatic.com/public/shared/images/header/logo_steam.svg?t=962016">
-          </div>
-        
-          <div class="container smallFont">
-            <label for="uname"><b>Username</b></label>
-            <input style="background-color: #e8f0fe;" type="text" placeholder="Enter Username" name="uname" required>
-        
+
+        <form id="loginForm" action="../Home/home.html" method="post" class="container smallFont fade-in">
+          
+          <div style="display: block;">
+            <label for="uname"><b>Sign in with account name</b></label>
+            <input  type="text" placeholder="Enter Username" name="uname" required>
+
             <label for="psw"><b>Password</b></label>
-            <input style="background-color:#e8f0fe;" type="password" placeholder="Enter Password" name="psw" required>
-                
-            <button type="submit" class="smallFont" style="display: block;width: 25%; margin-left: 37%; margin-top:2%;height: 50px ;background-image: linear-gradient(to right, #3786c6 , #223e87);;">
-              <span style="color: whitesmoke; font-weight: 600;">Login</span></button>
-            <label>
+            
+            <input  type="password" placeholder="Enter Password" name="psw" required>
+            
+            <div style="text-align: center;">
+              <button type="submit">
+              <span style="color: whitesmoke;">Sign in</span></button>
+              <br>
+              <label class="smallFont"><a href="../Register/register.html">Not Registered?</a></label>
                 <br>
-              <input type="checkbox" checked="checked" name="remember"> Remember me
-            </label>
-          </div>
-        
-          <div class="container" >
-            <button style="width: 25%; margin-left: 37%; margin-top:2%;height: 50px; background-image: linear-gradient(to right, #df1b1b, #ba3030);" 
-            type="button" class="cancelbtn smallFont" onclick=clearInput()><span style="color: whitesmoke; font-weight: 600;">Clear</span></button></button>
-          </div>
+              <label class="smallFont"><a href="../Register/register.html">Forgot Password?</a></label>
+            </div>
+
+
+        </div>
+
+
         </form>
 
     </body>

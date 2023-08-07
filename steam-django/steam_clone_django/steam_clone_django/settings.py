@@ -143,6 +143,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 PAYPAL_RECEIVER_EMAIL = 'sb-mclg826189614@business.example.com'
 PAYPAL_TEST = True
+PAYPAL_BUY_BUTTON_IMAGE = '/static/ImageData/paypalButton.png'
 
 LOGIN_URL = 'users:login'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

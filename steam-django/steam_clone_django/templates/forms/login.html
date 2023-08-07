@@ -5,45 +5,40 @@
 <html>
   {% block main %}
   <link rel="stylesheet" type="text/css" href="{% static 'css/login-stylesheet.css' %}/?v=1" >
-        <script src="{% static 'js/login-js.js' %}"></script>
 
   
-    <body id="transparentBG" style="position: relative; background-color: #1b2838;
+    <body class="" id="transparentBG" style="position: relative; background-color: #1b2838;
     background: linear-gradient(rgba(0, 0, 0, 0.70), rgba(0, 0, 0, 0.70)), url({% static 'ImageData/cover.webp' %});">
       
-        <img style="position: absolute; width: 800px; height:700px;visibility: hidden;" src="{% static 'ImageData/games.jpg' %}">
+        <img  style="position: absolute; width: 800px; height:700px;visibility: hidden;" src="{% static 'ImageData/games.jpg' %}">
   
         
         <form id="loginForm" method="POST" style="" class="container smallFont fade-in">
           {% csrf_token %}
-          {% comment %} <div class="container" style="text-align: center;">
-            <img src="https://store.cloudflare.steamstatic.com/public/shared/images/header/logo_steam.svg?t=962016">
-          </div> {% endcomment %}
-        
-          <div style="margin: 3%; position:relative;">
-              {% csrf_token %}
-            <label for="uname"><b>Username</b></label>
-            <input style="background-color: #e8f0fe;" type="text" placeholder="Enter Username" name="username" required>
+          <div style="display: block;">
+              
+            <label for="uname"><b>Sign in with account name</b></label>  
+            <input type="text" placeholder="Enter Username" name="username" required>
         
             <label for="psw"><b>Password</b></label>
-            <input style="background-color:#e8f0fe;" type="password" placeholder="Enter Password" name="password" required>
+            <input type="password" placeholder="Enter Password" name="password" required>
             
-            
-            
-            <button type="submit" class="actionBtn" style="background-image: linear-gradient(to right, #3786c6 , #223e87);">
-              <span class="smallFont" style="color: whitesmoke">Login</span></button>
-            
+            <div style="text-align: center;">
+            <button type="submit">
+              <span style="color: whitesmoke">Sign in</span></button>
+              <p class = 'smallFont'>
+                {% if messages %}
+                  {% for message in messages %}
+                    {{ message }}
+                  {% endfor %}
+                {% endif %}
+                </p>
+              <label class="smallFont"><a href="{% url 'users:register' %}">Not Registered?</a></label>
+                <br>
+              <label class="smallFont"><a href="#">Forgot Password?</a></label>
+            </div>
 
-              {% comment %} <button style="background-image: linear-gradient(to right, #df1b1b, #ba3030);" 
-              type="button" class="actionBtn cancelbtn smallFont" onclick=clearInput()><span style="color: whitesmoke; font-weight: 600;">Clear</span></button> {% endcomment %}
-
-            <p class = 'smallFont'>
-            {% if messages %}
-              {% for message in messages %}
-                {{ message }}
-              {% endfor %}
-            {% endif %}
-            </p>
+            
           </div>
 
         </form>
