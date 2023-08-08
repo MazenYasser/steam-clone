@@ -27,7 +27,16 @@
             <label class="mediumFont" for="email"><b>Email: </b></label>
             <span class="smallFont">{{email}}</span>
             <button style="float: right;" class="btn btn-primary" onclick="openEmail()">Change Email</button>
-            <input id="emailInput" class="fade-in" type="text" placeholder="Enter new Email" style="display: none;">
+            
+            <form id="emailInput" method="POST" class="fade-in" style="display: none;">
+              {% csrf_token %}
+            <input class="fade-in" type="text" placeholder="Enter New Email" name="newEmail" required>
+            <div style="text-align: center">
+              <button type="submit" name="emailSubmit">
+                <span style="color: whitesmoke;">Submit</span></button>
+              </div>
+            </form>
+        
              <br>
         </div>
 
@@ -51,12 +60,16 @@
             <input class="fade-in" type="password" placeholder="Enter New password" name="newPassword" required>
 
             <div style="text-align: center">
-              <button type="submit">
+              <button type="submit" name="passwordSubmit">
                 <span style="color: whitesmoke;">Submit</span></button>
               </div>
               
             </form>
-            
+            {% if messages %}
+              {% for message in messages %}
+                    {{ message }}
+                  {% endfor %}
+                {% endif %}
           </div>
            
        

@@ -1,0 +1,7 @@
+{% autoescape off %}
+Hi, {{user.name}}
+You've recieved this mail because you requested a mail change.
+Please click on this link to change your email address:
+http://{{domain}}{% url 'users:confirmMailChange' uidb64=uid token=token newEmail=newEmail %}
+
+{% endautoescape %}

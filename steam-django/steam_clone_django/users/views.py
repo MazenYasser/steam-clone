@@ -8,7 +8,7 @@ from django.contrib.auth import get_user_model
 from django.shortcuts import redirect
 from django.contrib import messages
 from django.contrib.auth.hashers import make_password, check_password
-from .tokens import account_activation_token
+from .tokens import account_activation_token, mail_change_token
 from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
 from django.contrib.sites.shortcuts import get_current_site
@@ -16,9 +16,46 @@ from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 from django.utils.encoding import force_bytes, force_text
 # Create your views here.
 
-def activate(request, uidb64, token):
+def changeEmail(request, newEmail):
+    subject = 'Confirm Email Change'
+    message = render_to_string('forms/mailChangeMail.html', {
+        'user': request.user.name,
+        'domain': get_current_site(request).domain,
+        'uid': urlsafe_base64_encode(force_bytes(request.user.pk)),
+        'newEmail': urlsafe_base64_encode(force_bytes(newEmail)),
+        'token': mail_change_token.make_token(request.user),
+        'protocol': 'https' if request.is_secure() else 'http'
+    })
+    email = EmailMessage(subject= subject, body= message, to=[request.user.email])
+    
+    if email.send():  
+        messages.success(request, f'Confirmation email sent to {request.user.email}, please go to your current email to confirm email change.\nCheck spam folder.')
+    
+    else:
+        messages.error(request, f'Problem sending email to {request.user.email}, Check if you typed the email correctly and try again.')
+
+def confirmMailChange(request, newEmail, token, uidb64):
     user = get_user_model()
     
+    try:
+        uid = force_text(urlsafe_base64_decode(uidb64))
+        user = User.objects.get(pk=uid)
+        
+    except(TypeError, ValueError, OverflowError, User.DoesNotExist):
+        user = None
+
+    
+    if user is not None and mail_change_token.check_token(user= user, token= token):
+        user.email = force_text(urlsafe_base64_decode(newEmail))
+        user.save()
+        
+        messages.success(request, 'Email changed successfully.')
+        return render(request, 'forms/accountInfo.html', context={'username': request.user.name , 'phone': request.user.phone, 'email': request.user.email})
+        
+    pass
+
+def activate(request, uidb64, token):
+    user = get_user_model()
     try:
         uid = force_text(urlsafe_base64_decode(uidb64))
         user = User.objects.get(pk=uid)
@@ -105,7 +142,8 @@ def logout(request):
     return redirect("pages:home")
 
 def accountInfo(request):
-    if request.method == 'POST':
+    print(request.POST)
+    if request.method == 'POST' and 'passwordSubmit' in request.POST:
         currentPassword = request.POST.get('currentPassword')
         newPassword = request.POST.get('newPassword')
         match = check_password(currentPassword, request.user.password)
@@ -119,5 +157,9 @@ def accountInfo(request):
             return redirect("users:login")
         else:
             messages.error(request, ("Current password is incorrect."))
+    elif request.method == "POST" and 'emailSubmit' in request.POST:
+        currentEmail = request.user.email
+        newEmail = request.POST.get('newEmail')
+        changeEmail(request, newEmail)
             
     return render(request, 'forms/accountInfo.html', context={'username': request.user.name , 'phone': request.user.phone, 'email': request.user.email})
