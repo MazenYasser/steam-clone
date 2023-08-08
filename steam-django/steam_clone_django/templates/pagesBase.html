@@ -41,7 +41,7 @@
                     <div style="background-color: #171a21;" class="dropdown-menu">
                       {% if user.is_authenticated %}
                         <a class="menuItem" href="{% url 'users:logout' %}">Logout</a>
-                        <a class="menuItem" href="{% url 'users:register'%}">Account Settings</a>
+                        <a class="menuItem" href="{% url 'users:accountInfo'%}">Account Settings</a>
                       {% else %}
                         <a class="menuItem" href="{% url 'users:login' %}">Login</a>
                         <a class="menuItem" href="{% url 'users:register'%}">Sign Up</a>
@@ -86,7 +86,7 @@
                   <div style="background-color: #171a21;" class="dropdown-menu">
                     {% if user.is_authenticated %}
                       <a class="menuItem" href="{% url 'users:logout' %}">Logout</a>
-                      <a class="menuItem" href="{% url 'users:register'%}">Account Settings</a>
+                      <a class="menuItem" href="{% url 'users:accountInfo'%}">Account Settings</a>
                     {% else %}
                       <a class="menuItem" href="{% url 'users:login' %}">Login</a>
                       <a class="menuItem" href="{% url 'users:register'%}">Sign Up</a>

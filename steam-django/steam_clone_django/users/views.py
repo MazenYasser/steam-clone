@@ -103,3 +103,21 @@ def logout(request):
     auth_logout(request)
     messages.success(request, ("You have been logged out."))
     return redirect("pages:home")
+
+def accountInfo(request):
+    if request.method == 'POST':
+        currentPassword = request.POST.get('currentPassword')
+        newPassword = request.POST.get('newPassword')
+        match = check_password(currentPassword, request.user.password)
+        
+        if match:
+            newPassword_hashed = make_password(newPassword)
+            user = User.objects.get(pk= request.user.id)
+            user.password = newPassword_hashed
+            user.save()
+            messages.success(request, ("Your password has been changed, Please sign in again."))
+            return redirect("users:login")
+        else:
+            messages.error(request, ("Current password is incorrect."))
+            
+    return render(request, 'forms/accountInfo.html', context={'username': request.user.name , 'phone': request.user.phone, 'email': request.user.email})

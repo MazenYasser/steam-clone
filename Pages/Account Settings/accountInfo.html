@@ -1,0 +1,96 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="accountInfo-stylesheet.css">
+    <script src="accountInfo-js.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<nav class="d-flex navbar navbar-expand-md darkNav navbar-dark">
+            
+    <div class="mx-auto bg">
+        <a href="{% url 'pages:home' %}"><img
+            class="logoBig" src="https://store.cloudflare.steamstatic.com/public/shared/images/header/logo_steam.svg?t=962016"></a>            
+    </div>
+
+    <button type="button" class="d-none d-md-block btn btn-success" data-target="#">
+        <img width="15px" height="15px" src="https://img.icons8.com/material-sharp/256/download--v1.png">Install Steam</button>
+
+      </nav>
+</head>
+
+<body id="transparentBG" style="background-color: #1b2838;
+ background: linear-gradient(rgba(0, 0, 0, 0.70), rgba(0, 0, 0, 0.70)), url(../../ImageData/games.jpg);">
+ <div id="userInfoForm" class="container smallFont">
+    <div class="container titleFont">
+       Account Information
+     </div>
+    
+     <div class="container smallFont">
+        
+       <div class="container">
+        <label class="mediumFont" for="username"><b>Username: </b></label>
+        <span class="smallFont">Mazen</span>
+        <button style="float: right;" class="btn btn-primary">Change Username</button>
+        <input id="nameInput" class="fade-in" type="text" placeholder="" style="display: none;">
+       </div>
+
+        <div class="container">
+            <label class="mediumFont" for="email"><b>Email: </b></label>
+            <span class="smallFont">mazenyasser225@gmail.com</span>
+            <button style="float: right;" class="btn btn-primary" onclick="openEmail()">Change Email</button>
+            <input id="emailInput" class="fade-in" type="text" placeholder="Enter new Email" style="display: none;">
+             <br>
+        </div>
+
+         <div class="container">
+            <label class="mediumFont" for="phone"><b>Phone: </b></label>
+            <span class="smallFont">01102851831</span>
+            <button style="float: right;" class="btn btn-primary">Change Phone</button>
+            <input id="phoneInput" class="fade-in" type="text" placeholder="" style="display: none;">
+             <br>
+         </div>
+
+          <div class="container">
+            <label class="mediumFont" for="password"><b>Password: </b></label>
+            <span class="smallFont">*****</span>
+            <button style="float: right;" class="btn btn-primary" onclick="openPassword()">Change Password</button>
+
+            <form id="passwordInput" method="POST" class="fade-in" style="display: none;">
+            <input class="fade-in" type="text" placeholder="Enter current password" required>
+            <input class="fade-in" type="text" placeholder="Enter New password" required>
+
+            <div style="text-align: center">
+              <button type="submit">
+                <span style="color: whitesmoke;">Submit</span></button>
+              </div>
+              
+            </form>
+
+          </div>
+           
+       
+    
+     </div>
+ </div>
+</body>
+
+
+<div class="card-footer" style="background-color: #171a21; width: 100%; height:100px; padding: 20px 350px; color: whitesmoke;
+    overflow: hidden; position: fixed; bottom: 0px"  >
+      <div style="float: left; padding-right: 10px; height: 100%;">
+        <img  src="https://store.cloudflare.steamstatic.com/public/images/footerLogo_valve_new.png" width="88px" height="25px" alt="Valve Software">
+      </div>
+      <div style="float: right; padding-left: 10px; height: 100%;">
+        <img  src="https://store.cloudflare.steamstatic.com/public/images/v6/logo_steam_footer.png" alt="Valve Software" width="92px" height="26px">
+      </div>
+    <span>
+      © 2023 Valve Corporation. All rights reserved. All trademarks are property of their respective owners in the US and other countries
+      <br>
+      VAT included in all prices where applicable.
+    </span>
+    </div>
+</html>

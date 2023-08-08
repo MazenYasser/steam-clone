@@ -1,0 +1,138 @@
+
+
+.darkNav{
+    background-color: #171a21;
+  }
+  .logoSmall{
+    width: 156.63px;
+    height: 36px;
+  }
+  .logoBig{
+    width: 176px;
+    height: 44px;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  a :hover{
+    transition: 0.3s;
+    text-decoration: none;
+    color: whitesmoke;
+  }
+  
+  
+  .smallFont{
+    font-size: 15px;
+    color: #1999ff;
+    font-family: "Motiva Sans", sans-serif;
+  }
+
+  .mediumFont{
+    font-size: 20px;
+    color: #1999ff;
+    font-family: "Motiva Sans", sans-serif;
+  }
+  
+  @media screen and (max-width: 860px) {
+    .card-footer{
+        display: none;
+    }
+    
+  }
+  
+  .titleFont{
+    font-size: 30px;
+    color: whitesmoke;
+    font-weight: light;
+    font-family: "Motiva Sans", sans-serif;
+  }
+  
+  /* Register Form */
+  #userInfoForm {
+    position: relative;
+    width: 30%;
+    margin-top: 5%;
+    background-color: #181a21;
+    border-radius: 15px;
+  }
+  
+  button[type=submit]{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2%;
+  width: 50%;
+  height: 50px;
+  background: linear-gradient(90deg, #06BFFF 0%, #2D73FF 100%);
+  font-size: 16px;
+  font-weight: 400;
+  font-family: inherit;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 8px;
+  }
+  
+  label {
+  margin-bottom: 0px !important;
+  }
+  
+  a:hover{
+  text-decoration: none;
+  }
+  
+  input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border-radius: 5px;
+    background-color: #2b2b2b;
+    display: block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    color: whitesmoke;
+  }
+  
+  @media screen and (max-width: 900px) {
+      #registerForm {
+        width: 100%;
+        margin-top: 25%;
+      }
+  
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  .container {
+    padding: 12px;
+  }
+  
+  /* Change styles for span and cancel button on extra small screens */
+  @media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
+  }
+
+.fade-in{
+  animation: fadeIn 0.3s ease-in-out;
+}
+@keyframes fadeIn {
+  from { opacity:0}
+  to { opacity:1;}
+}
+
+.fade-out{
+  animation: fadeOut 0.5s ease-in-out;
+}
+@keyframes fadeOut {
+  from { opacity:1}
+  to { opacity:0;}
+}
+  
