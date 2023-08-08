@@ -46,9 +46,9 @@
               
             <form id="passwordInput" method="POST" class="fade-in" style="display: none;">
               {% csrf_token %}
-            <input class="fade-in" type="text" placeholder="Enter current password" name="currentPassword" required>
+            <input class="fade-in" type="password" placeholder="Enter current password" name="currentPassword" required>
             
-            <input class="fade-in" type="text" placeholder="Enter New password" name="newPassword" required>
+            <input class="fade-in" type="password" placeholder="Enter New password" name="newPassword" required>
 
             <div style="text-align: center">
               <button type="submit">
