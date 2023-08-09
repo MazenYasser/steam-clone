@@ -8,7 +8,7 @@ from django.contrib.auth import get_user_model
 from django.shortcuts import redirect
 from django.contrib import messages
 from django.contrib.auth.hashers import make_password, check_password
-from .tokens import account_activation_token, mail_change_token
+from .tokens import account_activation_token, mail_change_token, password_reset_token
 from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
 from django.contrib.sites.shortcuts import get_current_site
@@ -158,3 +158,65 @@ def accountInfo(request):
         changeEmail(request, newEmail)
             
     return render(request, 'forms/accountInfo.html', context={'username': request.user.name , 'phone': request.user.phone, 'email': request.user.email})
+
+def forgotPassword(request):
+    user = get_user_model()
+    if request.method == "POST":
+        email = request.POST.get('email')
+        try:
+            user = User.objects.get(email=email)
+            
+        except(User.DoesNotExist, TypeError, OverflowError):
+            user = None
+        
+        if user is not None:
+            to_email = user.email
+            passwordResetMail(request, user, to_email)
+                
+    return render(request, 'forms/forgotPassword.html')
+
+def passwordResetMail(request, user, to_email):    
+    subject = "Reset your password"
+    message = render_to_string('forms/forgotPasswordMail.html', context={
+        'user': user.name,
+        'domain': get_current_site(request).domain,
+        'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+        'token': password_reset_token.make_token(user),
+        'protocol': 'https' if request.is_secure() else 'http'
+        
+    })
+    
+    email = EmailMessage(subject= subject, body= message, to=[to_email])
+    
+    if email.send():  
+        messages.success(request, f'An email was sent to {to_email}, please go to the email to reset your password.\nCheck spam folder.')
+    
+    else:
+        messages.error(request, f'Problem sending email to {to_email}, Check if you typed the email correctly and try again.')
+
+def passwordReset(request, uidb64, token):
+    user = get_user_model()
+    
+    try:
+        uid = force_text(urlsafe_base64_decode(uidb64))
+        user = User.objects.get(pk=uid)
+        
+    except(TypeError, ValueError, OverflowError, User.DoesNotExist):
+        user = None
+
+    if user is not None and password_reset_token.check_token(user = user, token = token):
+        if request.method == "POST":
+            newPassword = request.POST.get("newPassword")
+            newPasswordConfirm = request.POST.get("newPasswordConfirm")
+            
+            if newPassword != newPasswordConfirm:
+                messages.error(request, "Passwords do not match")
+                
+            elif newPassword == newPasswordConfirm:
+                newPassword_hashed = make_password(newPassword)
+                user.password = newPassword_hashed
+                user.save()
+                messages.success(request, "Password has been changed successfully, please sign in again")
+                return redirect("users:login")
+    
+    return render(request, 'forms/passwordReset.html')

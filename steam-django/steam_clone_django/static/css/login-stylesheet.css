@@ -109,7 +109,7 @@ button:hover {
 }
 
 .fade-in{
-  animation: fadeIn 1s ease-in-out;
+  animation: fadeIn 0.7s ease-in-out;
 }
 @keyframes fadeIn {
   from { opacity:0}
