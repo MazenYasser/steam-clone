@@ -51,8 +51,6 @@ def confirmMailChange(request, newEmail, token, uidb64):
         
         messages.success(request, 'Email changed successfully.')
         return render(request, 'forms/accountInfo.html', context={'username': request.user.name , 'phone': request.user.phone, 'email': request.user.email})
-        
-    pass
 
 def activate(request, uidb64, token):
     user = get_user_model()
@@ -66,10 +64,8 @@ def activate(request, uidb64, token):
     if user is not None and account_activation_token.check_token(user = user, token = token):
         user.is_active = True
         user.save()
-        
         messages.success(request, 'Thank you for activating your account, you can now login.')
         return redirect('users:login')
-    
     else:
         messages.error(request, 'Activation token is invalid.')
     
@@ -158,7 +154,6 @@ def accountInfo(request):
         else:
             messages.error(request, ("Current password is incorrect."))
     elif request.method == "POST" and 'emailSubmit' in request.POST:
-        currentEmail = request.user.email
         newEmail = request.POST.get('newEmail')
         changeEmail(request, newEmail)
             
