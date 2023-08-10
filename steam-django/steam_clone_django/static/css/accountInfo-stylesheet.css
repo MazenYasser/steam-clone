@@ -93,6 +93,8 @@
     color: whitesmoke;
   }
   
+
+
   @media screen and (max-width: 900px) {
       #registerForm {
         width: 100%;

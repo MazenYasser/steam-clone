@@ -47,13 +47,13 @@ a :hover{
  }
 }
 
-.navbar-nav li:hover>.dropdown-menu {
+/* .navbar-nav li:hover>.dropdown-menu {
     display: block;
     margin-top: 0px;
     opacity: 1;
     text-decoration: none;
     
-}
+} */
 
 
 .video-container {

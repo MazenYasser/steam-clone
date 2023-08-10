@@ -35,20 +35,20 @@ function openPassword() {
 
 
 
-// function openInput(field){
-//     var target = event.target
-//     displayState = document.getElementById(target.id).style.display
-//     if (displayState === "none"){
-//     $(document.getElementById(target.id)).removeClass("fade-out");
-//     $(document.getElementById(target.id)).addClass("fade-in");
-//     document.getElementById(target.id).style.display = "block";
-//     document.getElementById(target.id).style.marginTop = "20px";
-//     }
+function openInput(field){
+    var target = event.target
+    displayState = document.getElementById(target.id).style.display
+    if (displayState === "none"){
+    $(document.getElementById(target.id)).removeClass("fade-out");
+    $(document.getElementById(target.id)).addClass("fade-in");
+    document.getElementById(target.id).style.display = "block";
+    document.getElementById(target.id).style.marginTop = "20px";
+    }
 
-//     else if (displayState === "block"){
-//     $(document.getElementById(field)).removeClass("fade-in");
-//     $(document.getElementById(field)).addClass("fade-out");
-//     document.getElementById(field).style.display = "none";
-//     document.getElementById(field).style.marginTop = "0px";
-//     }
-// }
+    else if (displayState === "block"){
+    $(document.getElementById(field)).removeClass("fade-in");
+    $(document.getElementById(field)).addClass("fade-out");
+    document.getElementById(field).style.display = "none";
+    document.getElementById(field).style.marginTop = "0px";
+    }
+}

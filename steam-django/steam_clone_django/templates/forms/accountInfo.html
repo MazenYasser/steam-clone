@@ -3,7 +3,7 @@
 <html>
   {% block main %}
 
-  <link rel="stylesheet" href="{% static 'css/accountInfo-stylesheet.css'%}">
+  <link rel="stylesheet" href="{% static 'css/accountInfo-stylesheet.css'%}/?=v1">
   <script src="{% static "js/accountInfo-js.js" %}"></script>
     
 
@@ -28,17 +28,19 @@
         <div class="container">
             <label class="mediumFont" for="email"><b>Email: </b></label>
             <span class="smallFont">{{email}}</span>
-            <button style="float: right;" class="btn btn-primary" onclick="openEmail()">Change Email</button>
+            <button style="float: right;" class="btn btn-primary" onclick="openForm(emailInput)">Change Email</button>
             
-            <form id="emailInput" method="POST" class="fade-in" style="display: none;">
-              {% csrf_token %}
-            <input class="fade-in" type="text" placeholder="Enter New Email" name="newEmail" required>
-            <div style="text-align: center">
-              <button type="submit" name="emailSubmit">
-                <span style="color: whitesmoke;">Submit</span></button>
-              </div>
-            </form>
-        
+            <div id="emailInput" class="container" style="margin-top: 2%; display:none;">
+              <form method="POST" class="fade-in">
+                {% csrf_token %}
+              <input class="fade-in" type="text" placeholder="Enter New Email" name="newEmail" required>
+              <div style="text-align: center">
+                <button type="submit" name="emailSubmit">
+                  <span style="color: whitesmoke;">Submit</span></button>
+                </div>
+              </form>
+              
+            </div>
              <br>
         </div>
 
@@ -53,20 +55,23 @@
           <div class="container smallFont">
             <label class="mediumFont" for="password"><b>Password: </b></label>
             <span class="smallFont">*****</span>
-            <button style="float: right;" class="btn btn-primary" onclick="openPassword()">Change Password</button>
-              
-            <form id="passwordInput" method="POST" class="fade-in" style="display: none;">
-              {% csrf_token %}
-            <input class="fade-in" type="password" placeholder="Enter current password" name="currentPassword" required>
+            <button style="float: right;" class="btn btn-primary " onclick="openForm(passwordInput)">Change Password</button>
             
-            <input class="fade-in" type="password" placeholder="Enter New password" name="newPassword" required>
-
-            <div style="text-align: center">
-              <button type="submit" name="passwordSubmit">
-                <span style="color: whitesmoke;">Submit</span></button>
-              </div>
+            <div id="passwordInput" class="container" style="margin-top: 2%; display:none;">
+              <form method="POST" class="" style="">
+                {% csrf_token %}
+              <input class="" type="password" placeholder="Enter current password" name="currentPassword" required>
               
-            </form>
+              <input class="" type="password" placeholder="Enter New password" name="newPassword" required>
+              
+              <div style="text-align: center">
+                <button type="submit" name="passwordSubmit">
+                  <span style="color: whitesmoke;">Submit</span></button>
+                </div>
+                
+              </form>
+            </div>
+
             {% if messages %}
               {% for message in messages %}
                     {{ message }}
