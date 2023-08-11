@@ -9,15 +9,15 @@
     <body style="background-color: #1b2838;">
       <div class="bg">
         <div class="video-container" style="justify-content: center;">
-            <video autoplay muted loop id="myVideo" class="img-fluid" style="z-index: -1;">
+            <video autoplay muted loop id="myVideo" class="img-fluid" style="z-index: -10;">
                 <source src="{% static "ImageData/abstractbluebg_720.mp4" %}" type="video/mp4">
               </video>
 
-            <div class="d-none d-md-block navbarCaption mx-auto">
+            <div class="d-none d-md-block navbarCaption mx-auto" style="z-index: 10">
                 <nav class="navbar navbar-expand-sm navbarBg">
                     
                     <!-- Links -->
-                    <ul class="navbar-nav" >
+                    <ul class="navbar-nav" style="z-index:10">
                         <li class="nav-item dropdown">
                             <a class="nav-link navBarItem" href="#" data-toggle="dropdown">
                             Your Store

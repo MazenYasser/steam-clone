@@ -5,9 +5,10 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="{% static 'css/main-stylesheet.css' %}/?=v1">
         
         
         
@@ -23,7 +24,7 @@
                       <a class="nav-link" href="#" data-toggle="dropdown">
                         Store
                       </a>
-                      <div style="background-color: #171a21;" class="dropdown-menu">
+                      <div style="background-color: #171a21; display:none; z-index: -10" class="dropdown-menu">
                         <a class="menuItem" href={% url 'pages:home' %}>Home</a>
                         <a class="menuItem" href="#">Discovery Queue</a>
                         <a class="menuItem" href="#">Wishlist</a>
@@ -63,12 +64,12 @@
             
             <!-- Navbar links -->
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
-              <ul class="navbar-nav pt-1">
+              <ul class="navbar-nav pt-1" >
                 <li class="nav-item dropdown">
                     <a class="nav-link" href="#" data-toggle="dropdown">
                       Store
                     </a>
-                    <div style="background-color: #171a21;" class="dropdown-menu">
+                    <div style="background-color: #171a21; z-index: 3;" class="dropdown-menu">
                       <a class="menuItem" href="#">Home</a>
                       <a class="menuItem" href="#">Discovery Queue</a>
                       <a class="menuItem" href="#">Wishlist</a>
@@ -83,7 +84,7 @@
                   
                 <li class="nav-item dropdown">
                   <a class="nav-link" href="#">Account</a>
-                  <div style="background-color: #171a21;" class="dropdown-menu">
+                  <div style="background-color: #171a21; z-index:3;" class="dropdown-menu">
                     {% if user.is_authenticated %}
                       <a class="menuItem" href="{% url 'users:logout' %}">Logout</a>
                       <a class="menuItem" href="{% url 'users:accountInfo'%}">Account Settings</a>

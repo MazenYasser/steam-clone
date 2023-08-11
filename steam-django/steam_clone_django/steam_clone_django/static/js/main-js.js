@@ -16,6 +16,8 @@ function closeNav() {
   }}
 
 function fadeOnHover(){
-  
+
 }
-              
+  
+// Find items with dropdown-menu class
+// modify hover flag
