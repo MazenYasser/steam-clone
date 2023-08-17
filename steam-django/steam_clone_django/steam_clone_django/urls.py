@@ -27,4 +27,5 @@ urlpatterns = [
     path('checkout/', include(('checkout.urls','checkout'), namespace='checkout')),
     path('paypal/', include('paypal.standard.ipn.urls')),
     
+    
 ] + static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)

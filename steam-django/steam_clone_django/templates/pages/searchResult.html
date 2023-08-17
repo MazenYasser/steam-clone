@@ -1,0 +1,45 @@
+{% extends 'pagesBase.html' %}
+{% load static %}
+{% block main %}
+<html>
+    <link rel="stylesheet" href="{% static "css/search-stylesheet.css" %}?/=v1">
+    <script src= "{% static "js/main-js.js" %}"></script>
+
+    
+
+    <body style="background-color: #1b2838;">
+
+        {% if searched %}
+    <div id='searchResults' class='container' style="background-color: #101822; padding: 0px 0px 0px 0px; position: relative; margin-top: 10%">
+
+            <form class="form" method='POST' action="{% url 'pages:search' %}" style='margin-left: 30%; margin-right 30%;'>
+                {% csrf_token %}
+                <input class="form-control" type="search" placeholder="Search" name="searched">
+                    <button style="background-color: #8080ef9c;" class="btn" type="submit"><img width="15px" height="15px" src="https://img.icons8.com/material-rounded/256/search.png">
+                    </button>
+              </form>
+        
+          
+        {% for game in games %}
+        <a href={% url 'game' game.id %}> 
+            <div class="gameCard" style="position: relative;">
+                    <img src="{{game.img_cover.url}}">
+                    <span style="width: 40%; display: inline-block">{{game.name}}</span>
+                    <span>{{game.release_date}}</span>
+                    <span style="position: absolute; right: 5px; top: 25%">{{game.price}}$</span>
+                </div>
+        </a>
+            
+        {% endfor %}
+        
+        {% else %}
+            <center>
+                <h1 style="color: whitesmoke">
+                    YOU ARE NOT WELCOME HERE!
+                </h1>
+            </center>
+        {% endif %}
+    </div>
+    </body>
+    {% endblock main %}
+    </html>

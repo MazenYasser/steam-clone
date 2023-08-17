@@ -243,3 +243,24 @@ a :hover> .sidebar{
         margin-left: 0% !important;
     }
 }
+
+.container > a {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+
+a > .gameCard > img {
+    width: 120px;
+    height: 45px;
+}
+
+#searchResults{
+    width: 50%;
+}
+
+div > form >.form-control{
+    width: 40%;
+    display: inline-block;
+    line-height: 0.5;
+}

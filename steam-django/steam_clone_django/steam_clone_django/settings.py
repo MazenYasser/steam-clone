@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'steam_clone_django.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-AUTH_USER_MODEL = 'users.User'
+
 
 DATABASES = {
     'default': {
@@ -151,6 +151,8 @@ MEDIA_URL = '/media/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
+AUTH_USER_MODEL = 'users.User'
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 PAYPAL_RECEIVER_EMAIL = 'sb-mclg826189614@business.example.com'
@@ -158,6 +160,9 @@ PAYPAL_TEST = True
 PAYPAL_BUY_BUTTON_IMAGE = '/static/ImageData/paypalButton.png'
 
 LOGIN_URL = 'users:login'
+LOGIN_REDIRECT_URL = 'pages:home'
+
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_FROM = 'mazenyasser225@gmail.com'
