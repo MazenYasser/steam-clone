@@ -6,23 +6,22 @@
   <link rel="stylesheet" href="{% static 'css/main-stylesheet.css' %}/?=v1">
   <script src="{% static 'js/main-js.js' %}"></script>
 
-    <body style="background-color: #1b2838;">
-      <div class="bg">
+    <body>
         <div class="video-container" style="justify-content: center;">
-            <video autoplay muted loop id="myVideo" class="img-fluid" style="z-index: -10;">
+            <video autoplay muted loop id="myVideo">
                 <source src="{% static "ImageData/abstractbluebg_720.mp4" %}" type="video/mp4">
               </video>
 
-            <div class="d-none d-md-block navbarCaption mx-auto" style="z-index: 10">
+            <div id="floating-nav" class="d-none d-md-block navbarCaption mx-auto">
                 <nav class="navbar navbar-expand-sm navbarBg">
                     
                     <!-- Links -->
-                    <ul class="navbar-nav" style="z-index:10">
+                    <ul class="navbar-nav">
                         <li class="nav-item dropdown">
                             <a class="nav-link navBarItem" href="#" data-toggle="dropdown">
                             Your Store
                             </a>
-                            <div style="background-color: #3786c6; z-index: -5" class="dropdown-menu">
+                            <div class="dropdown-menu floating-nav-menu">
                               <a class="menuItem" href="#">Home</a>
                               <a class="menuItem" href="#">Community Recommendation</a>
                               <a class="menuItem" href="#">Recently Viewed</a>
@@ -31,7 +30,7 @@
                           </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link navBarItem" href="#">New and Noteworthy</a>
-                            <div style="background-color: #3786c6;" class="dropdown-menu">
+                            <div class="dropdown-menu floating-nav-menu">
                               <a class="menuItem" href="#">Steam Replay 2022</a>
                               <a class="menuItem" href="#">Top Sellers</a>
                               <a class="menuItem" href="#">Most Played</a>
@@ -41,7 +40,7 @@
                         <li class="nav-item dropdown">
                           <a class="nav-link navBarItem" href="#">Categories</a>
         
-                          <div style="background-color: #3786c6;" class="dropdown-menu">
+                          <div class="dropdown-menu floating-nav-menu">
                             <a class="menuItem navBarItem" href="#">Action</a>
                             <a class="menuItem navBarItem" href="#">Roleplaying</a>
                             <a class="menuItem navBarItem" href="#">Strategy</a>
@@ -58,7 +57,7 @@
                       <form class="form-inline ml-auto" method='GET' action="{% url 'pages:search' %}">
                         
                         <input class="form-control" type="search" placeholder="Search" name="searched">
-                        <button style="background-color: #66bcef; position: absolute; right: 1%" class="btn" type="submit"><img width="15px" height="15px" src="https://img.icons8.com/material-rounded/256/search.png">
+                        <button class="btn" type="submit"><img  src="https://img.icons8.com/material-rounded/256/search.png">
                         </button>
                       </form>
                   </nav>
@@ -66,13 +65,13 @@
 
             <div class="caption">
                 <h5>Feb.06 - Feb.13 @10AM Pacific</h5>
-                <img style="width: 40%; height: 40%;" src="{% static "ImageData/nextfest.png" %}">
+                <img src="{% static "ImageData/nextfest.png" %}">
             </div>
         </div>
 
-        <div id="main" style="position: relative;" class="container-fluid">
-          <div class="sidebar d-none d-xl-block" style="padding-right: 10px;">
-            <img src="https://steamstore-a.akamaihd.net/public/images//gift/steamcards_promo_02.png" width="250px">
+        <div id="main" class="container-fluid">
+          <div class="sidebar d-none d-xl-block">
+            <img src="https://steamstore-a.akamaihd.net/public/images//gift/steamcards_promo_02.png">
             <h5>GIFT CARDS</h5>
             <a href="#">Now Available on Steam</a>
             <h5>RECOMMENDED</h5>
@@ -125,7 +124,7 @@
             <a href="#">Destiny: 2</a>
           </div>
           
-        <div style="display:inline-block;width: 65%; height: 50%;position: relative; margin-top: 2%; margin-left: 17%;"
+        <div style=""
          id="demo" class="carousel slide carousel-fade" data-ride="carousel">
 
           <!-- Indicators -->
@@ -153,33 +152,34 @@
           </div>
           
           <!-- Left and right controls -->
-          <a style="height:70px; margin-top:25%" class="carousel-control-prev" href="#demo" data-slide="prev">
+          <a class="carousel-control-prev" href="#demo" data-slide="prev">
             <span class="carousel-control-prev-icon"></span>
           </a>
-          <a style="height:70px; margin-top:25%" class="carousel-control-next" href="#demo" data-slide="next">
+          <a class="carousel-control-next" href="#demo" data-slide="next">
             <span class="carousel-control-next-icon"></span>
           </a>
         </div>
           <!-- End of top slideshow -->
 
-        <div style="margin-left: 17%; margin-top: 3%">
+
+
+        <div id="midTitle">
           <h2 class="midTitleFont">Trending this week</h2>
         </div>
 
-        <div style="display:inline-block;width: 65%; height: fit-content;position: relative; margin-top: 2%; margin-left: 17%;"
+        <div 
          id="demo2" class="carousel slide" data-ride="carousel">
 
           <!-- Indicators -->
-          <ul style="display: none;" class="carousel-indicators">
+          <ul class="carousel-indicators">
             <li data-target="#demo2" data-slide-to="0" class="active"></li>
             <li data-target="#demo2" data-slide-to="1"></li>
             <li data-target="#demo2" data-slide-to="2"></li>
           </ul>
-          
+
           <!-- The bottom slideshow -->
           
           <div class="carousel-inner">
-            
             <!--This Div Contains the full carousel item, with each div inside containing a single image with caption for each img-->
             <div class="carousel-item active">
             {% for game in games %}
@@ -236,7 +236,7 @@
           </a>
         </div>
       </div>
-    </div>
+    
     </body>
 
 {% endblock main %}
