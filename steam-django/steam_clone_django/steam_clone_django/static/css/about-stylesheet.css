@@ -10,6 +10,10 @@
     height: 44px;
 }
 
+body {
+    background-color: #1b2838; overflow-x: hidden;
+}
+
 a {
     text-decoration: none;
 }
@@ -126,6 +130,7 @@ a :hover{
 .aboutBlock{
     margin: 100px;
     padding: 0px 200px;
+    width: 100%;
 }
 
 
@@ -152,4 +157,39 @@ a :hover{
 @keyframes slideIn-ltr {
     from {margin-left: -100%}
     to {margin-left: 0%;}
+}
+
+#dimmed_about_block{
+    background-repeat: repeat !important;
+    background-size: contain !important; 
+    text-align: center;  
+    padding: 100px; 
+    overflow-x: hidden;
+}
+
+#dimmed_about_block img{
+    position: absolute; visibility: hidden;
+}
+
+#about_info_container{
+    margin-left: 0px;
+}
+
+#about_img1{
+    width: 470px; height: 266px; margin-left: 35%; position: absolute;
+}
+#about_img2{
+    width: 470px; height: 397px; padding-right: 35px; position: absolute;
+}
+#about_img3{
+    width: 470px; height: 296px; margin-left: 35%; position: absolute;
+}
+#about_block2{
+    margin-left: 30%; width:100%
+}
+#about_block2_text{
+    margin-left: 70%;
+}
+.fade-in h1{
+    padding-top: 100px;
 }

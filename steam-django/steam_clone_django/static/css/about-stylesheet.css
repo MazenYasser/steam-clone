@@ -126,6 +126,7 @@ a :hover{
 .aboutBlock{
     margin: 100px;
     padding: 0px 200px;
+    width: 100%;
 }
 
 
@@ -138,7 +139,7 @@ a :hover{
     to { opacity:1;}
 }
 
-.slide-in-rtl img{
+.slide-in-rtl{
     animation: slideIn-rtl 2.5s ease-in-out;    
 }
 @keyframes slideIn-rtl {
@@ -152,4 +153,33 @@ a :hover{
 @keyframes slideIn-ltr {
     from {margin-left: -100%}
     to {margin-left: 0%;}
+}
+
+#dimmed_about_block{
+    background-repeat: repeat !important;
+    background-size: contain !important; 
+    text-align: center;  
+    padding: 100px; 
+    overflow-x: hidden;
+}
+
+#dimmed_about_block img{
+    position: absolute; visibility: hidden;
+}
+
+#about_info_container{
+    margin-left: 0px;
+}
+
+#about_img1{
+    width: 470px; height: 266px; margin-left: 35%; position: absolute;
+}
+#about_img2{
+    width: 470px; height: 397px; padding-right: 35px; position: absolute;
+}
+#about_img3{
+    width: 470px; height: 296px; margin-left: 35%; position: absolute;
+}
+#about_block2{
+    margin-left: 30%; width:100%
 }
