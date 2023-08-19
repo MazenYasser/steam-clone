@@ -103,9 +103,6 @@ button:hover {
      display: block;
      float: none;
   }
-  .cancelbtn {
-     width: 100%;
-  }
 }
 
 .fade-in{

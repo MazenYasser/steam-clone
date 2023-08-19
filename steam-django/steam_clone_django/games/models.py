@@ -25,6 +25,7 @@ class Games(models.Model):
     description = models.TextField(blank=True)
     requirements = models.TextField(validators=[sysreqCheck])
     price = models.FloatField()
+    img_logo = models.ImageField(verbose_name='Logo Image', upload_to='photos/%y/%m/%d',height_field=None, width_field=None, max_length=None, null=True, blank=True)
     img_cover = models.ImageField(verbose_name='Splash Art',upload_to='photos/%y/%m/%d', height_field=None, width_field=None, max_length=None, default=None, null=True, blank=True)
     img_1 = models.ImageField(verbose_name='Trailer Image 1',upload_to='photos/%y/%m/%d', height_field=None, width_field=None, max_length=None, default=None, null=True, blank=True)
     img_2 = models.ImageField(verbose_name='Trailer Image 2',upload_to='photos/%y/%m/%d', height_field=None, width_field=None, max_length=None, default=None, null=True, blank=True)

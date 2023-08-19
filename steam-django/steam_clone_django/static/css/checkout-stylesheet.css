@@ -68,18 +68,6 @@ a:hover{
 text-decoration: none;
 }
 
-input[type=text], input[type=password] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  border-radius: 5px;
-  background-color: #2b2b2b;
-  display: block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-  color: whitesmoke;
-}
-
 @media screen and (max-width: 900px) {
     #checkoutForm {
       width: 100%;
@@ -101,15 +89,7 @@ button:hover {
 }
 
 /* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-  span.psw {
-     display: block;
-     float: none;
-  }
-  .cancelbtn {
-     width: 100%;
-  }
-}
+
 
 .fade-in{
   animation: fadeIn 1s ease-in-out;

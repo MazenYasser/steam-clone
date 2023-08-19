@@ -51,6 +51,24 @@ a :hover{
     animation: fade-in 150ms ease-in-out;
 }
 
+.nav-link:hover{
+    .navbar-nav li:hover>.dropdown-menu {
+        z-index: 15 !important;
+    }
+}
+
+.form-control{
+    background-color: #316282;
+    color: whitesmoke;
+}
+
+.form-control:focus{
+    background-color: #316282;
+    color: whitesmoke;
+}
+
+
+
 @keyframes fade-in {
     from {
         opacity: 0;

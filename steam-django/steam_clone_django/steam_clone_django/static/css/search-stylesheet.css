@@ -44,11 +44,27 @@ a :hover{
 
 .navbar-nav li:hover>.dropdown-menu {
     display: block;
-    z-index: 15 !important;
     margin-top: 0px;
     opacity: 1;
     text-decoration: none;
     animation: fade-in 150ms ease-in-out;
+    z-index: 5 !important;
+}
+
+.form-control{
+    background-color: #316282;
+    color: whitesmoke;
+    line-height: 2;
+    border:1px solid #316282;
+}
+
+.form-control:hover{
+    border:1px solid #3d9ad8  ;
+}
+
+.form-control:focus{
+    background-color: #316282;
+    color: whitesmoke;
 }
 
 @keyframes fade-in {
@@ -59,52 +75,6 @@ a :hover{
         opacity: 1;
     }
 }
-
-.video-container {
-    height: 100%;
-    width: 100%;
-    position: relative;
-}
-
-.video-container video {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  object-fit: cover;
-}
-
-.video-container .caption{
-  position: relative;
-  text-align: center;
-  padding: 10px;
-  padding-top: 30px;
-}
-
-.navbarCaption{
-    position: relative;
-    padding: 3px;
-    width: 800px;
-}
-.navbarBg{
-    margin-top: 30px;
-    background-image: linear-gradient(to right, #3786c6 , #223e87);
-    height: 45px;
-}
-
-.navBarItem{
-    color: whitesmoke;
-    text-decoration: none;
-}
-
-.navBarItem:hover{
-    background-color: whitesmoke;
-    opacity: 100%;
-}
-
-@media screen and (max-width: 992px) {
-    
-}
-
 
 .overlay {
     height: 100%;
@@ -161,89 +131,6 @@ a :hover{
     }
   }
 
-  .carousel-inner img {
-    width: 100%;
-    height: 100%;
-  }
-  .sidebar {
-    position: absolute;
-    padding-top: 20px;
-    width: 210px;
-    height: 1000px;
-    float: left;
-    margin-left: 1%;
-    color: whitesmoke;
-}
-
-a :hover> .sidebar{
-    text-decoration: none;
-    color: #ccdecc;
-}
-
-.smallCarouselImg{
-    display: inline-block; 
-    width: 33%;
-}
-
-.carousel-caption {
-    position: absolute;
-    right: 10px;
-    bottom: 20px;
-    left: 10px;
-    z-index: 10;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    color: #fff;
-    text-align: center;
-}
-
-.midTitleFont{
-    color: whitesmoke;
-}
-
-#img1{
-    position: relative;
-}
-
-.carouselItem {
-    background-repeat: no-repeat;
-    position: relative;
-    float: left;
-    width: 33%;
-    background-size:cover;
-  }
-  
-.carouselImg {
-    visibility: hidden;
-  }
-
-.carouselCaption{
-    background-color: rgba(55, 134, 198, 0.5);
-    position: absolute; 
-    bottom: 0.1%; 
-    left: 0; 
-    width: 100%; 
-    height: 30%; 
-    text-align: left;
-    padding: 10px;
-    color: whitesmoke;
-    font-weight: 600;
-}
-
-@media screen and (max-width: 860px) {
-    .card-footer{
-        display: none;
-    }
-    #demo{
-        width: 100% !important;
-        margin-left: 0% !important;
-    }
-    #demo2{
-        width: 100% !important;
-        margin-left: 0% !important;
-    }
-}
-
 .container > a {
     text-decoration: none;
     color: whitesmoke;
@@ -260,7 +147,16 @@ a > .gameCard > img {
 }
 
 div > form >.form-control{
-    width: 40%;
+    width: 70%;
     display: inline-block;
     line-height: 0.5;
+}
+
+#searchButton{
+    background-color: #56a0cd;
+}
+
+#searchButton:hover{
+    background-color: #66bcef;
+    transition: 0.3s;
 }

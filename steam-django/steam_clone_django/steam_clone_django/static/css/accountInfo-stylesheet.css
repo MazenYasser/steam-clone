@@ -49,7 +49,7 @@
     font-family: "Motiva Sans", sans-serif;
   }
   
-  /* Register Form */
+  /* Account Info Form */
   #userInfoForm {
     position: relative;
     width: 30%;
@@ -96,7 +96,7 @@
 
 
   @media screen and (max-width: 900px) {
-      #registerForm {
+      #userInfoForm {
         width: 100%;
         margin-top: 25%;
       }
@@ -111,17 +111,6 @@
     padding: 12px;
   }
   
-  /* Change styles for span and cancel button on extra small screens */
-  @media screen and (max-width: 300px) {
-    span.psw {
-       display: block;
-       float: none;
-    }
-    .cancelbtn {
-       width: 100%;
-    }
-  }
-
 .fade-in{
   animation: fadeIn 0.3s ease-in-out;
 }
@@ -133,11 +122,7 @@
 .fade-out{
   animation: fadeOut 0.5s ease-in-out;
 }
-@keyframes fadeOut {
-  from { opacity:1}
-  to { opacity:0;}
-}
-  
+
 /* Background Blur code */
 .gradient-blur {
   position: fixed;

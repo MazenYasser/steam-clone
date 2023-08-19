@@ -21,7 +21,7 @@
                       <a class="nav-link" href="#" data-toggle="dropdown">
                         Store
                       </a>
-                      <div style="background-color: #171a21; display:none; z-index: -10" class="dropdown-menu">
+                      <div style="background-color: #171a21; z-index: -10" class="dropdown-menu">
                         <a class="menuItem" href={% url 'pages:home' %}>Home</a>
                         <a class="menuItem" href="#">Discovery Queue</a>
                         <a class="menuItem" href="#">Wishlist</a>
@@ -66,7 +66,7 @@
                     <a class="nav-link" href="#" data-toggle="dropdown">
                       Store
                     </a>
-                    <div style="background-color: #171a21; z-index: 3;" class="dropdown-menu">
+                    <div style="background-color: #171a21; z-index: -1;" class="dropdown-menu">
                       <a class="menuItem" href="#">Home</a>
                       <a class="menuItem" href="#">Discovery Queue</a>
                       <a class="menuItem" href="#">Wishlist</a>
@@ -81,7 +81,7 @@
                   
                 <li class="nav-item dropdown">
                   <a class="nav-link" href="#">Account</a>
-                  <div style="background-color: #171a21; z-index:3;" class="dropdown-menu">
+                  <div style="background-color: #171a21; z-index:-1;" class="dropdown-menu">
                     {% if user.is_authenticated %}
                       <a class="menuItem" href="{% url 'users:logout' %}">Logout</a>
                       <a class="menuItem" href="{% url 'users:accountInfo'%}">Account Settings</a>
@@ -127,7 +127,7 @@
 
 
     <div class="card-footer" style="background-color: #171a21; width: 100%; height:100px; padding: 20px 350px; color: whitesmoke;
-    overflow: hidden; position: fixed; bottom: 0px; text-align:center"  >
+    overflow: hidden; position: relative; bottom: 0px; text-align:center"  >
       <div style="float: left; padding-right: 10px; height: 100%;">
         <img  src="https://store.cloudflare.steamstatic.com/public/images/footerLogo_valve_new.png" width="88px" height="25px" alt="Valve Software">
       </div>

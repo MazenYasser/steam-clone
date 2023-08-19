@@ -11,7 +11,7 @@
         <div class="bg">
         <div class="container-fluid" style="padding: 50px;">
 
-            <div id="transparentBG" style="background: linear-gradient(rgba(0, 0, 0, 0.70), rgba(0, 0, 0, 0.70)), url({% static "ImageData/games2.jpg" %}); background-repeat: repeat;
+            <div  style="background: linear-gradient(rgba(0, 0, 0, 0.70), rgba(0, 0, 0, 0.70)), url({% static "ImageData/games2.jpg" %}); background-repeat: repeat;
             background-size: contain; text-align: center;  padding: 100px; overflow-x: hidden;">
                 <img style="position: absolute; width: 800px; height:700px;visibility: hidden;" src="{% static "ImageData/games2.jpg" %}">
                 <h1 class="titleFont">Access Games Instantly</h1>
@@ -24,9 +24,9 @@
         </div>
             
 
-            <div class="container">
-              <div class="container aboutBlock slide-in-rtl">
-                  <img style="width: 470px; height: 266px; margin-left: 35%; position: absolute;" id="hero_community_pt3" src="https://cdn.cloudflare.steamstatic.com/store/about/cta_hero_community_pt3.png">
+            <div class="container" style="margin-left:0px">
+              <div class="container aboutBlock ">
+                  <img class='slide-in-rtl' style="width: 470px; height: 266px; margin-left: 35%; position: absolute;" id="hero_community_pt3" src="https://cdn.cloudflare.steamstatic.com/store/about/cta_hero_community_pt3.png">
                     
                       <div class="fade-in">
                         <h1 style="padding-top: 100px;" class="titleFont">Join The Community</h1>
@@ -40,23 +40,22 @@
               </div>
               
               
-              <div class="slide-in-ltr">
-                  <img style="width: 470px; height: 397px; padding-right: 35px; position: absolute;" id="hero_hardware" class="hero_complete visible" src="https://cdn.cloudflare.steamstatic.com/store/about/cta_hero_hardware.png">
-                  <div style="margin-left: 50%;" class="fade-in"> 
-                    <h1 style="padding-top: 180px;" class="titleFont">Experience Steam Hardware</h1>
+              <div style="margin-left: 30%; width:100%">
+                  <img style="width: 470px; height: 397px; padding-right: 35px; position: absolute;" id="hero_hardware" class="slide-in-ltr" src="https://cdn.cloudflare.steamstatic.com/store/about/cta_hero_hardware.png">
+                  <div style="margin-left: 70%;" class="fade-in"> 
+                    <h1 style="padding-top: 100px;" class="titleFont">Experience Steam Hardware</h1>
                     <p class="smallFont">
                         We created the Steam Controller and the VR technologies that power the HTC Vive to making gaming on the PC even better.
                     </p>
                   </div>
               </div>
               
-              <div class="container aboutBlock slide-in-rtl" style="margin-top: 200px;">
-                  <img style="width: 470px; height: 296px; margin-left: 35%; position: absolute;" id="hero_steamworks" class="hero_complete visible" src="https://cdn.cloudflare.steamstatic.com/store/about/cta_hero_steamworks.png">
+              <div class="container aboutBlock" style="margin-top: 200px;">
+                  <img class='slide-in-rtl' style="width: 470px; height: 296px; margin-left: 35%; position: absolute;" id="hero_steamworks" src="https://cdn.cloudflare.steamstatic.com/store/about/cta_hero_steamworks.png">
                   
                  <div class="fade-in">
                    <h1 style="padding-top: 100px;"class="titleFont">Release your Game</h1>
                    <p class="smallFont">
-                       
                        Steamworks is the set of tools and services that help <br> 
                        game developers and publishers <br>get the most out of distributing games on Steam.
                    </p>
