@@ -10,6 +10,13 @@
     height: 44px;
 }
 
+body{
+    background: rgb(27,40,56);
+    background: radial-gradient(circle, rgba(27,40,56,1) 0%, rgba(54,98,125,1) 0%, rgba(27,40,56,1) 100%);
+}
+
+
+
 a {
     text-decoration: none;
 }
@@ -142,8 +149,26 @@ a > .gameCard > img {
     height: 45px;
 }
 
+.gameCard{
+    position: relative;
+    display: block;
+}
+
+.gameName{
+    width: 40%; display: inline-block
+}
+
+.gamePrice{
+    position: absolute; right: 5px; top: 25%
+}
+
+#notFound{
+    color: whitesmoke; margin-top: 20%
+}
+
 #searchResults{
     width: 50%;
+    background-color: #101822; padding: 0px 0px 0px 0px; margin-top: 5%; z-index:1; position: relative;
 }
 
 div > form >.form-control{
@@ -154,9 +179,27 @@ div > form >.form-control{
 
 #searchButton{
     background-color: #56a0cd;
+    position: absolute; top: 0px; right: 30%
+}
+
+#searchButton img{
+    width: 20px;
+    height: 20px;
 }
 
 #searchButton:hover{
     background-color: #66bcef;
     transition: 0.3s;
+}
+
+#categoryFilter{
+    display: block; position: absolute; right:3%; top:5%
+}
+
+#categoryList{
+    background-color: #316282; color: whitesmoke; border-radius: 5px;
+}
+
+.smallFont{
+    color: whitesmoke
 }

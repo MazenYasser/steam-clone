@@ -1,5 +1,3 @@
-
-
 .darkNav{
   background-color: #171a21;
 }
@@ -35,6 +33,25 @@ a :hover{
   }
   
 }
+
+body{
+  position: relative; background-color: #1b2838;
+}
+
+#bg{
+  position: absolute; width: 800px; height:700px;visibility: hidden;
+}
+
+
+#btn-div{
+  text-align: center;
+}
+
+button > span{
+  color: whitesmoke;
+}
+
+
 
 /* Login Form */
 #loginForm {

@@ -22,6 +22,13 @@ a :hover{
   color: whitesmoke;
 }
 
+body{
+  background-color: #1b2838;
+}
+
+#bg{
+  position: absolute; width: 800px; height:700px;visibility: hidden;
+}
 
 .smallFont{
   font-size: 15px;
@@ -43,6 +50,11 @@ a :hover{
   margin-top: 15%;
   background-color: #181a21;
   border-radius: 15px;
+  text-align: center;
+}
+
+.messageFont{
+  color: whitesmoke;
 }
 
 button[type=submit]{

@@ -7,7 +7,7 @@
   <script src="{% static "js/accountInfo-js.js" %}"></script>
     
 
-<body id="transparentBG" style="background-color: #1b2838;
+<body id="transparentBG" style="
  background: linear-gradient(rgba(0, 0, 0, 0.70), rgba(0, 0, 0, 0.70)), url({% static 'ImageData/cover.webp' %});">
  <div class="gradient-blur"></div>
 
@@ -21,20 +21,20 @@
        <div class="container">
         <label class="mediumFont" for="username"><b>Username: </b></label>
         <span class="smallFont">{{username}}</span>
-        <button style="float: right;" class="btn btn-primary">Change Username</button>
-        <input id="nameInput" class="fade-in" type="text" placeholder="" style="display: none;">
+        <button class="btn btn-primary">Change Username</button>
+        <input id="nameInput" class="fade-in" type="text" placeholder="">
        </div>
 
         <div class="container">
             <label class="mediumFont" for="email"><b>Email: </b></label>
             <span class="smallFont">{{email}}</span>
-            <button style="float: right;" class="btn btn-primary" onclick="openForm(emailInput)">Change Email</button>
+            <button class="btn btn-primary" onclick="openForm(emailInput)">Change Email</button>
             
-            <div id="emailInput" class="container" style="margin-top: 2%; display:none;">
+            <div id="emailInput" class="container">
               <form method="POST" class="fade-in">
                 {% csrf_token %}
               <input class="fade-in" type="text" placeholder="Enter New Email" name="newEmail" required>
-              <div style="text-align: center">
+              <div class="btn-div">
                 <button type="submit" name="emailSubmit">
                   <span style="color: whitesmoke;">Submit</span></button>
                 </div>
@@ -47,24 +47,24 @@
          <div class="container">
             <label class="mediumFont" for="phone"><b>Phone: </b></label>
             <span class="smallFont">{{phone}}</span>
-            <button style="float: right;" class="btn btn-primary">Change Phone</button>
-            <input id="phoneInput" class="fade-in" type="text" placeholder="" style="display: none;">
+            <button class="btn btn-primary">Change Phone</button>
+            <input id="phoneInput" class="fade-in" type="text" placeholder="">
              <br>
          </div>
 
           <div class="container smallFont">
             <label class="mediumFont" for="password"><b>Password: </b></label>
             <span class="smallFont">*****</span>
-            <button style="float: right;" class="btn btn-primary " onclick="openForm(passwordInput)">Change Password</button>
+            <button class="btn btn-primary " onclick="openForm(passwordInput)">Change Password</button>
             
-            <div id="passwordInput" class="container" style="margin-top: 2%; display:none;">
+            <div id="passwordInput" class="container">
               <form method="POST" class="" style="">
                 {% csrf_token %}
               <input class="" type="password" placeholder="Enter current password" name="currentPassword" required>
               
               <input class="" type="password" placeholder="Enter New password" name="newPassword" required>
               
-              <div style="text-align: center">
+              <div class="btn-div">
                 <button type="submit" name="passwordSubmit">
                   <span style="color: whitesmoke;">Submit</span></button>
                 </div>
@@ -84,21 +84,5 @@
      </div>
  </div>
 </body>
-
-
-<div class="card-footer" style="background-color: #171a21; width: 100%; height:100px; padding: 20px 350px; color: whitesmoke;
-    overflow: hidden; position: fixed; bottom: 0px"  >
-      <div style="float: left; padding-right: 10px; height: 100%;">
-        <img  src="https://store.cloudflare.steamstatic.com/public/images/footerLogo_valve_new.png" width="88px" height="25px" alt="Valve Software">
-      </div>
-      <div style="float: right; padding-left: 10px; height: 100%;">
-        <img  src="https://store.cloudflare.steamstatic.com/public/images/v6/logo_steam_footer.png" alt="Valve Software" width="92px" height="26px">
-      </div>
-    <span>
-      © 2023 Valve Corporation. All rights reserved. All trademarks are property of their respective owners in the US and other countries
-      <br>
-      VAT included in all prices where applicable.
-    </span>
-    </div>
   {% endblock main %}
 </html>

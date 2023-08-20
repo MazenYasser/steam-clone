@@ -12,6 +12,10 @@
     height: 44px;
   }
   
+  body{
+    background-color: #1b2838;
+  }
+
   a {
     text-decoration: none;
   }
@@ -21,7 +25,10 @@
     text-decoration: none;
     color: whitesmoke;
   }
-  
+
+  .btn{
+    float: right;
+  }
   
   .smallFont{
     font-size: 15px;
@@ -93,6 +100,17 @@
     color: whitesmoke;
   }
   
+  #nameInput, #phoneInput{
+    display: none;
+  }
+
+  #emailInput, #passwordInput{
+    margin-top: 2%; display:none;
+  }
+
+  .btn-div{
+    text-align: center;
+  }
 
 
   @media screen and (max-width: 900px) {

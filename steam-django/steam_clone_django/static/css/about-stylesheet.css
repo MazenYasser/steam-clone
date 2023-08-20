@@ -10,6 +10,10 @@
     height: 44px;
 }
 
+body {
+    background-color: #1b2838; overflow-x: hidden;
+}
+
 a {
     text-decoration: none;
 }
@@ -182,4 +186,10 @@ a :hover{
 }
 #about_block2{
     margin-left: 30%; width:100%
+}
+#about_block2_text{
+    margin-left: 70%;
+}
+.fade-in h1{
+    padding-top: 100px;
 }

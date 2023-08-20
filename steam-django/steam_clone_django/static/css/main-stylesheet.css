@@ -10,6 +10,10 @@
     height: 44px;
 }
 
+body{
+    background-color: #1b2838;
+}
+
 a {
     text-decoration: none;
 }
@@ -67,6 +71,26 @@ a :hover{
     color: whitesmoke;
 }
 
+#myVideo{
+    z-index: -10;
+}
+
+#floating-nav{
+    z-index: 10;
+}
+
+.btn{
+    background-color: #66bcef; position: absolute; right: 1%
+}
+
+.btn img{
+    width:15px;
+    height:15px;
+}
+
+.caption img{
+    width: 40%; height: 40%;
+}
 
 
 @keyframes fade-in {
@@ -118,6 +142,11 @@ a :hover{
     background-color: whitesmoke;
     opacity: 100%;
 }
+
+.floating-nav-menu{
+    background-color: #3786c6;
+}
+
 
 @media screen and (max-width: 992px) {
     
@@ -186,6 +215,7 @@ a :hover{
   .sidebar {
     position: absolute;
     padding-top: 20px;
+    padding-right: 10px;
     width: 210px;
     height: 1000px;
     float: left;
@@ -193,14 +223,33 @@ a :hover{
     color: whitesmoke;
 }
 
+
+.sidebar img{
+    width: 250px;
+}
+
 a :hover> .sidebar{
     text-decoration: none;
     color: #ccdecc;
 }
 
+#main{
+    position: relative;
+}
+
+#demo{
+    display:inline-block;width: 65%; height: 50%;position: relative; margin-top: 2%; margin-left: 17%;
+}
+
+
 .smallCarouselImg{
     display: inline-block; 
     width: 33%;
+}
+
+#demo1 > .carousel-control-prev,
+#demo1 > .carousel-control-next{
+    height:70px; margin-top:25%
 }
 
 .carousel-caption {
@@ -248,6 +297,19 @@ a :hover> .sidebar{
     font-weight: 600;
 }
 
+#midTitle{
+    margin-left: 17%; margin-top: 3%
+}
+
+#demo2{
+    display:inline-block;width: 65%; height: fit-content;position: relative; margin-top: 2%; margin-left: 17%;
+}
+
+#demo2 > .carousel-indicators{
+    display: none;
+}
+
+
 @media screen and (max-width: 860px) {
     .card-footer{
         display: none;
@@ -261,3 +323,4 @@ a :hover> .sidebar{
         margin-left: 0% !important;
     }
 }
+

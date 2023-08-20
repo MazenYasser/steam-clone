@@ -1,5 +1,3 @@
-
-
 .darkNav{
   background-color: #171a21;
 }
@@ -10,6 +8,10 @@
 .logoBig{
   width: 176px;
   height: 44px;
+}
+
+body{
+  background-color: #1b2838;
 }
 
 a {
@@ -94,6 +96,15 @@ input[type=text], input[type=password] {
     }
 
 }
+
+#bg{
+  position: absolute; width: 800px; height:700px;visibility: hidden;
+}
+
+.white{
+  color: whitesmoke;
+}
+
 
 button:hover {
   opacity: 0.8;
