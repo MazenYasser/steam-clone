@@ -10,6 +10,10 @@
     height: 44px;
 }
 
+body{
+    background-color: #1b2838;
+}
+
 a {
     text-decoration: none;
 }
@@ -114,21 +118,52 @@ a :hover{
     width: 100%;
     height: 100%;
   }
-  .sidebar {
-    position: absolute;
-    padding-top: 20px;
-    width: 210px;
-    height: 1000px;
-    float: left;
-    margin-left: 1%;
-    color: whitesmoke;
+
+#game-highlight-div{
+    width: 60%; height: 470px; position: relative; background-color: #0e151d; padding: 0px;
 }
 
-a :hover> .sidebar{
-    text-decoration: none;
-    color: #ccdecc;
+#demo{
+    float: left; width: 60%; height: 100%;
 }
 
+#demo > .carousel-control-prev,
+#demo > .carousel-control-next{
+    height:70px; margin-top:25%
+}
+
+#game-highlight{
+    display: inline-block; width: 40%; height: 100%; padding-left: 1%; padding-top: 5px;
+}
+
+.game_header_image_full{
+    width: 100%;
+}
+
+#game-price{
+    width: 60%; height: 80px; background-image: linear-gradient(to right, rgb(45, 61, 74) , rgb(87, 101, 116));
+}
+
+#game-price >.smallFont{
+    display: inline-block; font-weight: 600; font-size: 20px; padding-left: 5px; margin-top: 25px;
+}
+
+#price{
+    background-color: black; float: right; padding: 5px; margin-top: 20px;
+}
+
+#price > span{
+    color: #c5d3de; position: relative; top: 8px; padding-right: 12px;
+}
+
+#btn-buy{
+    float: right;
+}
+
+#sysreq{
+    display: inline-block; border-bottom: 1px; border-color: #3a6e8b; border-style: solid; border-top: 0px;
+    border-left: 0px; border-right: 0px; margin-top:3%
+}
 
 @media screen and (max-width: 860px) {
     .card-footer{

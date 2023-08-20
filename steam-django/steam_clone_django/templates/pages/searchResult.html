@@ -7,21 +7,20 @@
 
     
 
-    <body style="background: rgb(27,40,56);
-    background: radial-gradient(circle, rgba(27,40,56,1) 0%, rgba(54,98,125,1) 0%, rgba(27,40,56,1) 100%);">
+    <body>
 
         {% if games %}
-    <div id='searchResults' class='container' style="background-color: #101822; padding: 0px 0px 0px 0px; margin-top: 5%; z-index:1; position: relative;">
-            <form class="form" method='GET' action="{% url 'pages:searchByCategory' %}" style='align-self: center'>
+    <div id='searchResults' class='container'>
+            <form class="form" method='GET' action="{% url 'pages:searchByCategory' %}">
                 <input class="form-control" type="search" placeholder="Search" name="searched">
-                    <button id='searchButton' style="position: absolute; top: 0px; right: 30%" class="btn" type="submit"><img width="20px" height="20px" src="https://img.icons8.com/material-rounded/256/search.png">
+                    <button id='searchButton' class="btn" type="submit"><img src="https://img.icons8.com/material-rounded/256/search.png">
                     </button>
-                    <div style="display: block; position: absolute; right:3%; top:5%">
-                        <label style="color: whitesmoke" for="category">Filter by category</label>
-                        <select name="category" id="categoryList" style="background-color: #316282; color: whitesmoke; border-radius: 5px;">
+                    <div id="categoryFilter">
+                        <label class="smallFont" for="category">Filter by category</label>
+                        <select name="category" id="categoryList">
                             <option disabled selected value></option>
                             {% for category in categories %}
-                                <option style="color: whitesmoke" value="{{category}}">{{category}}</option>
+                                <option class="smallFont" value="{{category}}">{{category}}</option>
                             {% endfor %}
                         </select>
                     </div>
@@ -30,18 +29,18 @@
           
         {% for game in games %}
         <a href={% url 'game' game.id %}> 
-            <div class="gameCard" style="position: relative; display:block;">
+            <div class="gameCard">
                     <img src="{{game.img_logo.url}}">
-                    <span style="width: 40%; display: inline-block">{{game.name}}</span>
+                    <span class="gameName">{{game.name}}</span>
                     <span>{{game.release_date}}</span>
-                    <span style="position: absolute; right: 5px; top: 25%">{{game.price}}$</span>
+                    <span class="gamePrice">{{game.price}}$</span>
                 </div>
         </a>
         {% endfor %}
         
         {% else %}
             <center>
-                <h1 style="color: whitesmoke; margin-top: 20%">
+                <h1 id='notFound'>
                     Your search of {{searched}} returned no results.
                 </h1>
             </center>

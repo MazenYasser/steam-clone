@@ -6,12 +6,11 @@
   <link rel="stylesheet" href="{% static 'css/product-stylesheet.css' %}">
   <script src="{% static 'js/product-js.js' %}"></script>
   
-    <body id="body" style="background-color: #1b2838;">
+    <body>
         <div class="bg">
             <!--Game Highlights Container-->
-            <div id="game-highlight-div" class="container" style=" width: 60%; height: 470px; position: relative; background-color: #0e151d; padding: 0px;">
-                <div style="float: left; width: 60%; height: 100%;"
-         id="demo" class="carousel slide carousel-fade vid-carousel" data-ride="carousel" data-interval="false">
+            <div id="game-highlight-div" class="container">
+                <div id="demo" class="carousel slide carousel-fade vid-carousel" data-ride="carousel" data-interval="false">
 
           <!-- Indicators -->
           <ul class="carousel-indicators">
@@ -40,17 +39,16 @@
           </div>
           
           <!-- Left and right controls -->
-          <a style="height:70px; margin-top:20%" class="carousel-control-prev" href="#demo" data-slide="prev">
+          <a class="carousel-control-prev" href="#demo" data-slide="prev">
             <span class="carousel-control-prev-icon"></span>
           </a>
-          <a style="height:70px; margin-top:20%" class="carousel-control-next" href="#demo" data-slide="next">
+          <a class="carousel-control-next" href="#demo" data-slide="next">
             <span class="carousel-control-next-icon"></span>
           </a>
         </div>
 
-        <div id="game-highlight" style="display: inline-block; width: 40%; height: 100%; padding-left: 1%; padding-top: 5px;">
-            <img class="game_header_image_full" src="{{game.img_cover.url}}"
-            style="width: 100%;">
+        <div id="game-highlight">
+            <img class="game_header_image_full" src="{{game.img_cover.url}}">
             <p class="smallFont">
                 {{game.description}}
                 <br> 
@@ -70,24 +68,22 @@
                 
         </div>
 
-        <div class="container" id="game-price" style="
-        width: 60%; height: 80px; background-image: linear-gradient(to right, rgb(45, 61, 74) , rgb(87, 101, 116));">
-            <div class="smallFont" style="display: inline-block; font-weight: 600; font-size: 20px; padding-left: 5px; margin-top: 25px;">
+        <div class="container" id="game-price">
+            <div class="smallFont">
                 Purchase {{game.name}}
             </div>
             
-            <div id="price" style="background-color: black; float: right; padding: 5px; margin-top: 20px;">
-                    <span style="color: #c5d3de; position: relative; top: 8px; padding-right: 12px;">${{game.price}} USD</span>
+            <div id="price">
+                    <span>${{game.price}} USD</span>
 
-                <div id="btn-buy" style="float: right;">
+                <div id="btn-buy">
                   <a href="{% url 'checkout:checkout' game.id %}">
                     <button type="button" class="btn btn-success"><span>Buy Game</span></button>
                   </a>
                 </div>
             </div>
       
-            <div id="sysreq" style="display: inline-block; border-bottom: 1px; border-color: #3a6e8b; border-style: solid; border-top: 0px;
-        border-left: 0px; border-right: 0px; margin-top:3%">
+            <div id="sysreq">
           <span class="smallFont">
             System Requirements &#160; &#160;
           </span>
