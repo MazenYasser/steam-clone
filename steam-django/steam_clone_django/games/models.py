@@ -1,6 +1,8 @@
 from django.db import models
 from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as lazy
+from users.models import User
+from django.utils import timezone
 # Create your models here.
 
 def sysreqCheck(requirements : str):
@@ -8,6 +10,9 @@ def sysreqCheck(requirements : str):
     for spec in specs:
         if requirements.__contains__(spec) == False:
             raise ValidationError(lazy("Missing requirement: " + spec))
+
+def defaultDict():
+    return dict()
 
 class Publisher(models.Model):
     name = models.CharField(max_length=50)
@@ -34,6 +39,14 @@ class Games(models.Model):
     developerName = models.CharField(max_length=50)
     publisherName = models.ForeignKey(to=Publisher, on_delete=models.DO_NOTHING)
     
-
     def __str__(self) -> str:
         return self.name
+
+class Review(models.Model):
+    game = models.ForeignKey(Games, on_delete=models.DO_NOTHING)
+    user = models.ForeignKey(User, on_delete=models.DO_NOTHING)
+    verdict = models.IntegerField(verbose_name="Recommended?", default=-1)
+    review = models.TextField(verbose_name="Review")
+    review_date = models.DateTimeField(default=timezone.now)
+
+    

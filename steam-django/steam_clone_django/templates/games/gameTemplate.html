@@ -7,7 +7,7 @@
   <script src="{% static 'js/product-js.js' %}"></script>
   
     <body>
-        <div class="bg">
+        
             <!--Game Highlights Container-->
             <div id="game-highlight-div" class="container">
                 <div id="demo" class="carousel slide carousel-fade vid-carousel" data-ride="carousel" data-interval="false">
@@ -82,8 +82,9 @@
                   </a>
                 </div>
             </div>
-      
-            <div id="sysreq">
+          </div>
+
+        <div class='container' id="sysreq">
           <span class="smallFont">
             System Requirements &#160; &#160;
           </span>
@@ -91,14 +92,98 @@
           <div id="req-type" class="smallFont">
             {{game.requirements | linebreaksbr}}
           </div>
-
-        </div>
-
-        </div>
-
         </div>
         <br>
         
+
+        {% if user_review %}
+        <div class='container' style="display: none; padding: 15px 15px 15px 15px">
+          <h4 style="color: whitesmoke">
+            Your review of {{game.name}}:
+          </h4>
+        </div>
+
+         <div id='user_review' class='container' style="background-color: #16202d; display: block; padding: 15px 15px 15px 15px">
+            {% for review in user_review %}
+            <p style="color: whitesmoke">
+              <span style="color: whitesmoke; padding-right: 10px; font-size: 20px">{{review.user}}</span>
+            <span style="color: #6f86a2">Posted: {{review.review_date}}</span></p>
+              
+            <p style="color: whitesmoke">
+            {% if review.verdict == 1 %}
+                <img src={% static 'ImageData/thumbs_up.png'%}>
+                Recommended</p>
+              {% else %}
+              <img src={% static 'ImageData/thumbs_down.png'%}>
+              Not Recommended</p>
+              {% endif %}
+              <p style="color:whitesmoke">{{review.review}}</p>
+            
+            <button type="button" class='btn btn-primary' onclick="showUpdateReview()">
+              Update Review
+            </button>
+         </div>
+
+         <form id='update_review' class='container' method="GET" action="{% url 'submitReview' game.id %}" style="display: none; background-color: #16202d; padding: 15px 15px 15px 15px">
+            <label style="color:whitesmoke; font-size: 20px" for="review">Your review</label>
+            <br>
+            <textarea type='text' name='review' rows="4" cols="50" style='width: 500px; height:100px; background-color: #0e151d; color:whitesmoke; resize: none;
+            border-radius: 5px; padding: 10px'>{{review.review}}</textarea>
+            <br>
+
+            {% if review.verdict == 1 %}
+            <input type='checkbox' name='isRecommended' id='isRecommended' checked>
+            {% else %}
+            <input type='checkbox' name='isRecommended' id='isRecommended'>
+            {% endif %}
+
+            <label style="color:whitesmoke;" for="isRecommended">Recommended?</label>
+            <br>
+            <button type="submit" class='btn btn-primary'><span>Submit</span></button>
+          </form>
+          {% endfor %}
+         <br>
+
+        {% else %}
+        <form class='container' method="GET" action="{% url 'submitReview' game.id %}" style="background-color: #16202d; padding: 15px 15px 15px 15px">
+            <label style="color:whitesmoke; font-size: 20px" for="review">Leave a review of the game</label>
+            <br>
+            <textarea type='text' name='review'rows="4" cols="50" style='width: 500px; height:100px; background-color: #0e151d; color:whitesmoke; resize: none;
+            border-radius: 5px; padding: 10px'></textarea>
+            <br>
+            <input type='checkbox' name='isRecommended' id='isRecommended'>
+            <label style="color:whitesmoke;" for="isRecommended">Recommended?</label>
+            <br>
+            <button type="submit" class='btn btn-primary'><span>Submit Review</span></button>
+        </form>
+        <br>
+        {% endif %}
+
+        
+        <div class="container" >
+          <h3 style="color: whitesmoke">Player's Reviews of {{game.name}}:</h3>
+        </div>
+        <div class="container" style='background-color: #16202d; padding: 15px 15px 15px 15px'>
+          
+          {% for review in reviews %}
+            {% if review.user != user %}
+            <p style="color: whitesmoke">
+              <span style="color: whitesmoke; padding-right: 10px; font-size: 20px">{{review.user}}</span>
+            <span style="color: #6f86a2">Posted: {{review.review_date}}</span></p>
+              
+            <p style="color: whitesmoke">
+            {% if review.verdict == 1 %}
+                <img src={% static 'ImageData/thumbs_up.png'%}>
+                Recommended</p>
+              {% else %}
+              <img src={% static 'ImageData/thumbs_down.png'%}>
+              Not Recommended</p>
+              {% endif %}
+              <p style="color:whitesmoke">{{review.review}}</p>
+            {% endif %}
+          {% endfor %}
+        </div>
+
     </body>
     {% endblock main %}
     

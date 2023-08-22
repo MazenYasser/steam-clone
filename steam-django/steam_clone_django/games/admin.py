@@ -4,3 +4,4 @@ from . import models
 
 admin.site.register(models.Publisher)
 admin.site.register(models.Games)
+admin.site.register(models.Review)

@@ -112,6 +112,10 @@
     text-align: center;
   }
 
+  #messages{
+    margin-top: 5% !important;
+  }
+
 
   @media screen and (max-width: 900px) {
       #userInfoForm {

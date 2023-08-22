@@ -12,6 +12,7 @@
 
 body{
     background-color: #1b2838;
+    padding-bottom: 100px;
 }
 
 a {
@@ -161,8 +162,12 @@ a :hover{
 }
 
 #sysreq{
-    display: inline-block; border-bottom: 1px; border-color: #3a6e8b; border-style: solid; border-top: 0px;
-    border-left: 0px; border-right: 0px; margin-top:3%
+    display: block; border-bottom: 1px; border-color: #3a6e8b; border-style: solid; border-top: 0px;
+    border-left: 0px; border-right: 0px; margin-top:0.5%; position: relative;
+}
+
+#req-type{
+    display: block;
 }
 
 @media screen and (max-width: 860px) {
@@ -171,6 +176,9 @@ a :hover{
     }
     #game-highlight-div{
         height: 28% !important;
+    }
+    #indicators{
+        display: none;
     }
 }
 

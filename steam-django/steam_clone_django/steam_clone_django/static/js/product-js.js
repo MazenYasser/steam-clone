@@ -15,3 +15,7 @@ function openNav() {
     }
   }
   
+function showUpdateReview(){
+    document.getElementById("update_review").style.display='block';
+    document.getElementById("user_review").style.display='none';
+  }

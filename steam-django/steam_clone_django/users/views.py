@@ -13,7 +13,7 @@ from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
 from django.contrib.sites.shortcuts import get_current_site
 from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
-from django.utils.encoding import force_bytes, force_text
+from django.utils.encoding import force_bytes, force_str
 # Create your views here.
 
 def changeEmail(request, newEmail):
@@ -38,7 +38,7 @@ def confirmMailChange(request, newEmail, token, uidb64):
     user = get_user_model()
     
     try:
-        uid = force_text(urlsafe_base64_decode(uidb64))
+        uid = force_str(urlsafe_base64_decode(uidb64))
         user = User.objects.get(pk=uid)
         
     except(TypeError, ValueError, OverflowError, User.DoesNotExist):
@@ -46,7 +46,7 @@ def confirmMailChange(request, newEmail, token, uidb64):
 
     
     if user is not None and mail_change_token.check_token(user= user, token= token):
-        user.email = force_text(urlsafe_base64_decode(newEmail))
+        user.email = force_str(urlsafe_base64_decode(newEmail))
         user.save()
         
         messages.success(request, 'Email changed successfully.')
@@ -55,7 +55,7 @@ def confirmMailChange(request, newEmail, token, uidb64):
 def activate(request, uidb64, token):
     user = get_user_model()
     try:
-        uid = force_text(urlsafe_base64_decode(uidb64))
+        uid = force_str(urlsafe_base64_decode(uidb64))
         user = User.objects.get(pk=uid)
         
     except(TypeError, ValueError, OverflowError, User.DoesNotExist):
@@ -138,7 +138,6 @@ def logout(request):
     return redirect("pages:home")
 
 def accountInfo(request):
-    print(request.POST)
     if request.method == 'POST' and 'passwordSubmit' in request.POST:
         currentPassword = request.POST.get('currentPassword')
         newPassword = request.POST.get('newPassword')
@@ -198,7 +197,7 @@ def passwordReset(request, uidb64, token):
     user = get_user_model()
     
     try:
-        uid = force_text(urlsafe_base64_decode(uidb64))
+        uid = force_str(urlsafe_base64_decode(uidb64))
         user = User.objects.get(pk=uid)
         
     except(TypeError, ValueError, OverflowError, User.DoesNotExist):
