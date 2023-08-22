@@ -57,7 +57,7 @@
                       <form class="form-inline ml-auto" method='GET' action="{% url 'pages:search' %}">
                         
                         <input class="form-control" type="search" placeholder="Search" name="searched">
-                        <button class="btn" type="submit"><img  src="https://img.icons8.com/material-rounded/256/search.png">
+                        <button id="btn-search" class="btn" type="submit"><img  src="https://img.icons8.com/material-rounded/256/search.png">
                         </button>
                       </form>
                   </nav>
@@ -146,7 +146,9 @@
             {% else %}
             <div class="carousel-item">
             {% endif %}
-              <img src="{{game.img_cover.url}}">
+              <a href="{% url "game" game.id %}" >
+                <img src="{{game.img_cover.url}}"> 
+              </a>
             </div>
             {% endfor %}
           </div>

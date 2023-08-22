@@ -79,13 +79,15 @@ a :hover{
     z-index: 10;
 }
 
-.btn{
-    background-color: #66bcef; position: absolute; right: 1%
-}
+
 
 .btn img{
     width:15px;
     height:15px;
+}
+
+#btn-search{
+    background-color: #66bcef; position: absolute; right: 1%
 }
 
 .caption img{
@@ -318,9 +320,8 @@ a :hover> .sidebar{
         width: 100% !important;
         margin-left: 0% !important;
     }
-    #demo2{
+    .carouselItem{
         width: 100% !important;
-        margin-left: 0% !important;
     }
 }
 

@@ -177,7 +177,7 @@ a :hover{
     #game-highlight-div{
         height: 28% !important;
     }
-    #indicators{
+    ul.carousel-indicators{
         display: none;
     }
 }
@@ -222,8 +222,6 @@ a :hover{
         width: 100% !important;
         padding-top: 1px !important;
     }
-    
-
     #price{
         width: 50% !important; 
     }
@@ -237,7 +235,52 @@ a :hover{
         width: 100% !important;
         margin-left: 5px !important;
     }
-
 }
 
+.review-container{
+    background-color: #16202d;
+    padding: 15px 15px 15px 15px;
+}
+
+#user-review{
+    display: block;
+}
+#update-review{
+    display: none;
+}
+.review-textarea{
+    width: 500px;
+    height:100px; 
+    background-color: #0e151d; 
+    color:whitesmoke;
+    resize: none;
+    border-radius: 5px; padding: 10px
+}
+.review-username{
+    color: whitesmoke; padding-right: 10px; font-size: 20px
+}
+
+.review-label{
+    color:whitesmoke; font-size: 20px;
+}
+
+.review-date{
+    color: #6f86a2;
+    font-size: 15px;
+}
+
+.review-verdict{
+    color:whitesmoke; font-size: 1rem;
+}
+
+button[type="button"], button[type="submit"]{
+height: 40px;
+font-size: 16px;
+font-weight: 450;
+font-family: inherit;
+text-align: center;
+cursor: pointer;
+border-radius: 8px;
+color: whitesmoke
+}
 

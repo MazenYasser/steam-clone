@@ -318,9 +318,8 @@ a :hover> .sidebar{
         width: 100% !important;
         margin-left: 0% !important;
     }
-    #demo2{
+    .carouselItem{
         width: 100% !important;
-        margin-left: 0% !important;
     }
 }
 
