@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from .models import Games
+from .models import Games, Review
+from checkout.models import Order
 from django.http import HttpResponse
-from .models import Review
 from django.utils import timezone
 # Create your views here.
 
@@ -9,7 +9,11 @@ def game(request, game_id):
     req_game = Games.objects.get(pk=game_id)
     current_reviews = req_game.review_set.all()
     current_user_review = Review.objects.filter(user=request.user, game=req_game)
-    return render(request, 'games/gameTemplate.html', context= {"game" : req_game, "reviews" : current_reviews, "user_review": current_user_review})
+    if Order.objects.filter(user_id = request.user, game = req_game).exists():
+        isOwned = True
+    else:
+        isOwned = False
+    return render(request, 'games/gameTemplate.html', context= {"game" : req_game, "reviews" : current_reviews, "user_review": current_user_review, "isOwned": isOwned})
 
 def submitReview(request, game_id):
     if request.method == "GET":

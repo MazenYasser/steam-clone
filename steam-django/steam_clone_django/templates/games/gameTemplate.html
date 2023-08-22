@@ -95,7 +95,7 @@
         </div>
         <br>
         
-
+        
         {% if user_review %}
         <div class='container' style="display: block;">
           <h4 class='review-label'>
@@ -142,6 +142,7 @@
          <br> 
 
         {% else %}
+        {% if isOwned is True %}
         <form class='container review-container' method="GET" action="{% url 'submitReview' game.id %}">
             <label class="review-label" for="review">Leave a review of the game</label>
             <br>
@@ -153,7 +154,15 @@
             <button type="submit" class='btn-primary'><span>Submit Review</span></button>
         </form>
         <br>
+        {% else %}
+        <div style='text-align: center'>
+          <h3 class="container review-label">Please purchase the game to leave a review.</h3>
+          <br>
+        </div>
         {% endif %}
+
+
+      {% endif %}
 
 
         <div class="container">
