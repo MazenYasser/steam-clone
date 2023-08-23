@@ -8,7 +8,7 @@ from django.utils import timezone
 def game(request, game_id):
     req_game = Games.objects.get(pk=game_id)
     current_reviews = req_game.review_set.all()
-    current_user_review = Review.objects.filter(user=request.user, game=req_game)
+    current_user_review = req_game.review_set.filter(user= request.user)
     if Order.objects.filter(user_id = request.user, game = req_game).exists():
         isOwned = True
     else:
@@ -30,7 +30,7 @@ def submitReview(request, game_id):
         review.save()
     
     current_reviews = game.review_set.all()
-    new_user_review = Review.objects.filter(user=request.user, game=game)
+    new_user_review = game.review_set.filter(user= request.user)
     return render(request, 'games/gameTemplate.html', context= {"game" : game, "reviews": current_reviews, "user_review": new_user_review})
 
 def updateReview(request, game_id):
@@ -48,6 +48,6 @@ def updateReview(request, game_id):
         old_review.save()
         
     current_reviews = game.review_set.all()
-    new_user_review = Review.objects.filter(user=request.user, game=game)
+    new_user_review = game.review_set.filter(user= request.user)
     return render(request, 'games/gameTemplate.html', context= {"game" : game, "reviews": current_reviews, "user_review": new_user_review})
             

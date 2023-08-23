@@ -73,7 +73,11 @@
                 Purchase {{game.name}}
             </div>
             
+
             <div id="price">
+              {% if isOwned is True %}
+                <p class='review-verdict'>You already own the game</p>
+                {% else %}
                     <span>${{game.price}} USD</span>
 
                 <div id="btn-buy">
@@ -81,7 +85,9 @@
                     <button type="button" class="btn-success"><span>Buy Game</span></button>
                   </a>
                 </div>
+                {% endif %}
             </div>
+            
           </div>
 
         <div class='container' id="sysreq">
