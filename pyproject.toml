@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "steam-clone"
+version = "0.1.0"
+description = ""
+authors = ["IvanIsak2000 <vingving648@gmail.com>"]
+readme = "README.md"
+packages = [{include = "steam_clone"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+django = "^4.2.4"
+paypal = "^1.2.5"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
