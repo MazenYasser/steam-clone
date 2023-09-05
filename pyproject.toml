@@ -8,8 +8,27 @@ packages = [{include = "steam_clone"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-django = "^4.2.4"
+django = "3.2.20"
 paypal = "^1.2.5"
+asgiref = "3.7.2"
+brotli = "1.0.9"
+certifi = "2023.7.22"
+charset-normalizer = "3.2.0"
+dj-database-url = "2.1.0"
+django-paypal = "2.0"
+gunicorn = "21.2.0"
+idna = "3.4"
+packaging = "23.1"
+pillow = "9.5.0"
+pytz = "2023.3"
+requests = "2.31.0"
+six = "1.16.0"
+sqlparse = "0.4.4"
+typing-extensions = "4.7.1"
+tzdata = "2023.3"
+urllib3 = "2.0.4"
+whitenoise = "6.5.0"
+psycopg2-binary = "^2.9.7"
 
 
 [build-system]
