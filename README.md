@@ -10,8 +10,9 @@ Frontend:
 Backend: 
 - `Django` 
 - `PostgreSQL`
-- 
- [Demonstration video](https://github.com/IvanIsak2000/steam-clone.git)
+
+Demonstration video
+https://youtu.be/8Tcb9pLEsxs
 
 ##  Pages:
 ### Sign Up
