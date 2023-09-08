@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="about-stylesheet.css">
+        <script src="about-js.js"></script>
+
+        <nav class="d-flex navbar navbar-expand-md darkNav navbar-dark">
+            <!-- Toggler/collapsibe Button -->
+            <span class="d-md-none d-block" style="cursor:pointer" onclick="openNav()"><img width="30px" height="30px" src="https://icon-library.com/images/hamburger-menu-icon-png-white/hamburger-menu-icon-png-white-10.jpg"></span>
+
+            <div id="myNav" class="overlay">
+              <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><img width="30px" height="30px" src="https://icon-library.com/images/hamburger-menu-icon-png-white/hamburger-menu-icon-png-white-10.jpg"></a>
+              <div class="overlay-content">
+                <ul class="navbar-nav pl-4 pt-1">
+                  <li class="nav-item dropdown">
+                      <a class="nav-link" href="#" data-toggle="dropdown">
+                        Store
+                      </a>
+                      <div style="background-color: #171a21;" class="dropdown-menu">
+                        <a class="menuItem" href="../Home/home.html">Home</a>
+                        <a class="menuItem" href="#">Discovery Queue</a>
+                        <a class="menuItem" href="#">Wishlist</a>
+                        <a class="menuItem" href="#">Points Shop</a>
+                        <a class="menuItem" href="#">News</a>
+                        <a class="menuItem" href="#">Stats</a>
+                      </div>
+                    </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="#">Support</a>
+                    </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link" href="#">Account</a>
+  
+                    <div style="background-color: #171a21;" class="dropdown-menu">
+                      <a class="menuItem" href="#">Login</a>
+                      <a class="menuItem" href="#">Sign Up</a>
+                    </div>
+                  </li>
+                  
+                  <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+              </button> -->
+        <div class="mx-auto bg">
+            <a class="float-left" href="../Home/home.html"><img
+                class="logoBig" src="https://store.cloudflare.steamstatic.com/public/shared/images/header/logo_steam.svg?t=962016"></a>
+            
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+              <ul class="navbar-nav pt-1">
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="#" data-toggle="dropdown">
+                      Store
+                    </a>
+                    <div style="background-color: #171a21;" class="dropdown-menu">
+                      <a class="menuItem" href="#">Home</a>
+                      <a class="menuItem" href="#">Discovery Queue</a>
+                      <a class="menuItem" href="#">Wishlist</a>
+                      <a class="menuItem" href="#">Points Shop</a>
+                      <a class="menuItem" href="#">News</a>
+                      <a class="menuItem" href="#">Stats</a>
+                    </div>
+                  </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Support</a>
+                  </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link" href="#">Account</a>
+
+                  <div style="background-color: #171a21;" class="dropdown-menu">
+                    <a class="menuItem" href="#">Login</a>
+                    <a class="menuItem" href="#">Sign Up</a>
+                  </div>
+                </li>
+                
+                <li class="nav-item">
+                  <a class="nav-link" href="about.html">About</a>
+                </li>
+              </ul>
+            </div>
+        </div>
+
+        <button type="button" class="d-none d-md-block btn btn-success" data-target="#">
+            <img width="15px" height="15px" src="https://img.icons8.com/material-sharp/256/download--v1.png">Install Steam</button>
+
+          </nav>
+    </head>
+
+    <body id="body" style="background-color: #1b2838; overflow-x: hidden;">
+        <div class="bg">
+        <div class="container-fluid" style="padding: 50px;">
+
+            <div id="transparentBG" style="text-align: center;  padding: 100px; overflow-x: hidden;">
+                <img style="position: absolute; width: 800px; height:700px;visibility: hidden;" src="../../ImageData/games.jpg">
+                <h1 class="titleFont">Access Games Instantly</h1>
+                <p class="smallFont">
+                    With nearly 30,000 games from AAA to indie and everything in-between. 
+                    <br>
+                    Enjoy exclusive deals, automatic game updates, and other great perks.
+                </p>
+            </div>
+        </div>
+            
+
+            <div class="container">
+              <div class="container aboutBlock slide-in-rtl">
+                  <img style="width: 470px; height: 266px; margin-left: 35%; position: absolute;" id="hero_community_pt3" src="https://cdn.cloudflare.steamstatic.com/store/about/cta_hero_community_pt3.png">
+                    
+                      <div class="fade-in">
+                        <h1 style="padding-top: 100px;" class="titleFont">Join The Community</h1>
+                        <p class="smallFont">
+                            Meet new people, join groups, form clans, chat in-game and more!
+                            <br>
+                            With over 100 million potential friends (or enemies), the fun never stops.
+                        </p>
+                        
+                      </div>
+              </div>
+              
+              
+              <div class="slide-in-ltr">
+                  <img style="width: 470px; height: 397px; padding-right: 35px; position: absolute;" id="hero_hardware" class="hero_complete visible" src="https://cdn.cloudflare.steamstatic.com/store/about/cta_hero_hardware.png">
+                  <div style="margin-left: 50%;" class="fade-in"> 
+                    <h1 style="padding-top: 180px;" class="titleFont">Experience Steam Hardware</h1>
+                    <p class="smallFont">
+                        We created the Steam Controller and the VR technologies that power the HTC Vive to making gaming on the PC even better.
+                    </p>
+                  </div>
+              </div>
+              
+              <div class="container aboutBlock slide-in-rtl" style="margin-top: 200px;">
+                  <img style="width: 470px; height: 296px; margin-left: 35%; position: absolute;" id="hero_steamworks" class="hero_complete visible" src="https://cdn.cloudflare.steamstatic.com/store/about/cta_hero_steamworks.png">
+                  
+                 <div class="fade-in">
+                   <h1 style="padding-top: 100px;"class="titleFont">Release your Game</h1>
+                   <p class="smallFont">
+                       
+                       Steamworks is the set of tools and services that help <br> 
+                       game developers and publishers <br>get the most out of distributing games on Steam.
+                   </p>
+                  
+                 </div>
+                 
+              </div>
+              <br>
+              
+              
+            </div>
+        </div>
+    </body>
+    <div class="card-footer" style="background-color: #313234; width: 100%; height:100px; padding: 20px 350px; color: whitesmoke;
+      overflow: hidden; position: relative;">
+        <div style="float: left; padding-right: 10px; height: 100%;">
+          <img  src="https://store.cloudflare.steamstatic.com/public/images/footerLogo_valve_new.png" width="88px" height="25px" alt="Valve Software">
+        </div>
+        <div style="float: right; padding-left: 10px; height: 100%;">
+          <img  src="https://store.cloudflare.steamstatic.com/public/images/v6/logo_steam_footer.png" alt="Valve Software" width="92px" height="26px">
+        </div>
+      <span>
+        © 2023 Valve Corporation. All rights reserved. All trademarks are property of their respective owners in the US and other countries
+        <br>
+        VAT included in all prices where applicable.
+      </span>
+      </div>
+</html>
+
