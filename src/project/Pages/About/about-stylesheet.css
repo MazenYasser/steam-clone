@@ -1,0 +1,237 @@
+
+
+.darkNav{
+    background-color: #171a21;
+}
+.logoSmall{
+    width: 156.63px;
+    height: 36px;
+}
+.logoBig{
+    width: 176px;
+    height: 44px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a :hover{
+    transition: 0.3s;
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+
+.menuItem{
+    display: block;
+    text-decoration: none;
+    padding: 7px;
+    padding-left: 15px;
+    color: #cccdce;
+}
+
+.menuItem:hover{
+    color: whitesmoke;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+@media screen and (min-width: 950px){
+.dropdown .dropdown-menu{
+    display: block; 
+    opacity:0;
+    -webkit-transition: all 150ms ease-in;
+    -moz-transition: all 150ms ease-in;
+    -ms-transition: all 150ms ease-in;
+    -o-transition: all 150ms ease-in;
+    transition: all 150ms ease-in;
+ }
+}
+.navbar-nav li:hover>.dropdown-menu {
+    display: block;
+    margin-top: 0px;
+    opacity: 1;
+    text-decoration: none;
+}
+
+.navbarCaption{
+    position: relative;
+    padding: 3px;
+    width: 800px;
+}
+.navbarBg{
+    margin-top: 30px;
+    background-image: linear-gradient(to right, #3786c6 , #223e87);
+    height: 45px;
+}
+
+.navBarItem{
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+.navBarItem:hover{
+    background-color: whitesmoke;
+    opacity: 100%;
+}
+
+@media screen and (max-width: 992px) {
+    
+}
+
+
+.overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 25;
+    top: 0;
+    left: 0;
+    background-color: #171a21;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    overflow-x: hidden;
+    transition: 0.5s;
+  }
+  
+  .overlay-content {
+    position: relative;
+    top: 3%;
+    width: 100%;
+    text-align: left;
+    margin-top: 30px;
+  }
+  
+  .overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .overlay a:hover, .overlay a:focus {
+    color: #f1f1f1;
+    text-decoration: none;
+  }
+  
+  .overlay .closebtn {
+    position: absolute;
+    top: 0px;
+    left: 6px;
+    padding: 10px;
+    padding-top: 3px;
+    font-size: 30px;
+  }
+  
+  @media screen and (max-height: 450px) {
+    .overlay a {font-size: 20px}
+    .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+    }
+  }
+
+  .sidebar {
+    position: absolute;
+    padding-top: 20px;
+    width: 210px;
+    height: 1000px;
+    float: left;
+    margin-left: 1%;
+    color: whitesmoke;
+}
+
+a :hover> .sidebar{
+    text-decoration: none;
+    color: #ccdecc;
+}
+
+.titleFont{
+    font-size: 40px;
+    font-weight: 600;
+    color: whitesmoke;
+}
+
+.smallFont{
+    font-size: 20px;
+    color: whitesmoke;
+}
+
+#img1{
+    position: relative;
+}
+
+.carouselItem {
+    background-repeat: no-repeat;
+    position: relative;
+    float: left;
+    width: 33%;
+    background-size:cover;
+  }
+  
+.carouselImg {
+    visibility: hidden;
+  }
+
+.carouselCaption{
+    background-color: rgba(55, 134, 198, 0.5);
+    position: absolute; 
+    bottom: 0.1%; 
+    left: 0; 
+    width: 100%; 
+    height: 30%; 
+    text-align: left;
+    padding: 10px;
+    color: whitesmoke;
+    font-weight: 600;
+}
+
+@media screen and (max-width: 860px) {
+    .card-footer{
+        display: none;
+    }
+    
+}
+
+.aboutBlock{
+    margin: 100px;
+    padding: 0px 200px;
+}
+
+#transparentBG{
+    background: linear-gradient(rgba(0, 0, 0, 0.70), rgba(0, 0, 0, 0.70)), url(../../ImageData/games.jpg);
+    background-repeat: repeat;
+    background-size: contain;
+}
+
+/* This is for the scroll down animation */
+.fade-in{
+    animation: fadeIn 1s ease-in-out;
+}
+@keyframes fadeIn {
+    from { opacity:0}
+    to { opacity:1;}
+}
+
+.slide-in-rtl img{
+    animation: slideIn-rtl 2.5s ease-in-out;    
+}
+@keyframes slideIn-rtl {
+    from {margin-left: 100%}
+    to {margin-left: 35%;}
+}
+
+.slide-in-ltr img{
+    animation: slideIn-ltr 2.5s ease-in-out;
+}
+@keyframes slideIn-ltr {
+    from {margin-left: -100%}
+    to {margin-left: 0%;}
+}
+
+
