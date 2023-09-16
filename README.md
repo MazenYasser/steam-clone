@@ -11,6 +11,15 @@ Backend:
 - `Django` 
 - `PostgreSQL`
 
+Backend Functions Implemented:
+- User authentication and registration
+- Change password while logged in
+- Forgot password
+- Sign up email verification
+- Add games and show them dynamically from admin panel (up to 9 games)
+- Purchase games with PayPal (Sandboxed)
+- Search games with name and filter by category
+
 Demonstration video
 https://youtu.be/8Tcb9pLEsxs
 
